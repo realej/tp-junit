@@ -4,11 +4,6 @@
  */
 package tp.junit;
 
-/**
- *
- * @author Rosso
- * prueba julian Commit
- */
 public class Assert {
 
     public static void assertTrue(boolean valor) throws Error {
