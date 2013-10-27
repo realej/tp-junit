@@ -7,6 +7,7 @@
  *
  * @author Julian
  */
+/*
 public abstract class File {
         protected String name;
         protected String attributes;
@@ -55,7 +56,8 @@ class Folder extends File {
                 }
         }
 }
-
+*/
+/*
 class Program {
         public static void main(String[] args) {
                 Folder folder = new Folder("My Documents", "RW", "Blowfish");
@@ -70,3 +72,5 @@ class Program {
                 root.displayInfo();
         }
 }
+* 
+*/
