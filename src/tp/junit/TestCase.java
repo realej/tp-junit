@@ -10,4 +10,6 @@ public class TestCase implements Test{
     public void run() {
         throw new Error();
     }
+    public void runTest(){
+    };
 }

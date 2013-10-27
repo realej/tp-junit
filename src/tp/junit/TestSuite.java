@@ -10,10 +10,14 @@ public class TestSuite implements Test {
     private ArrayList<Test> tests = new ArrayList<Test>();
     
     @Override
-    public void run(){};
+    public void run(){
+        for(Test test: tests){
+            test.run();
+        }       
+    }
     
-    public void addTest(Test t){};
-    
-    //public void run(){};
+    public void addTest(Test test){ 
+        tests.add(test);
+    }
     
 }
