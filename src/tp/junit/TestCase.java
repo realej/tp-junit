@@ -4,12 +4,19 @@
  */
 package tp.junit;
 
-public class TestCase implements Test{
-    
+public class TestCase implements Test {
+
     @Override
     public void run() {
-        throw new Error();
+        try {
+            runTest();
+        } catch (Error e) {
+            StackTraceElement[] f = e.getStackTrace();
+            System.out.println(f[1].getMethodName());
+        }
     }
-    public void runTest(){
-    };
+
+    public void runTest() {
+        //tenes que redifinirlo en el usuario
+    }
 }
