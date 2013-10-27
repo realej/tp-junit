@@ -12,7 +12,8 @@ public class TestCase implements Test {
             runTest();
         } catch (Error e) {
             StackTraceElement[] f = e.getStackTrace();
-            System.out.println(f[1].getMethodName());
+            System.out.println( f[1].getClassName() );
+            System.out.println( f[1].getMethodName() );
         }
     }
 
