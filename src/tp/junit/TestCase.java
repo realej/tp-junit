@@ -4,14 +4,10 @@
  */
 package tp.junit;
 
-/**
- *
- * @author Julian
- */
 public class TestCase implements Test{
     
     @Override
-    public void runTest() {
+    public void run() {
         throw new Error();
     }
 }

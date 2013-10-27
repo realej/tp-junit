@@ -9,6 +9,6 @@ public interface Test {
     /*
      * Metodo para correr el Test
      */
-    public void runTest();
+    public void run();
     
 }

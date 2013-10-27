@@ -6,18 +6,14 @@ package tp.junit;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Julian
- */
 public class TestSuite implements Test {
     private ArrayList<Test> tests = new ArrayList<Test>();
     
     @Override
-    public void runTest(){};
+    public void run(){};
     
     public void addTest(Test t){};
     
-    public void run(){};
+    //public void run(){};
     
 }
