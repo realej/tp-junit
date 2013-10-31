@@ -13,9 +13,10 @@ import tp.junit.*;
 public class AllTest {
 
     public static void main(String[] args) {
+        TestRunner handler = new TestRunner();
         TestSuite suite = new TestSuite();
         TestCalculadora tcalc = new TestCalculadora();
         suite.addTest(tcalc);
-        suite.run();
+        handler.init(suite);
     }
 }
