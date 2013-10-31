@@ -1,4 +1,4 @@
-package com.mycompany.junit;
+package com.fiuba.junit;
 
 /*
  * To change this template, choose Tools | Templates
