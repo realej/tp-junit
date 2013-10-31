@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.*;
-import java.awt.GridLayout;
+import java.awt.*;
 
 public class Ventana {
 
@@ -12,11 +12,17 @@ public class Ventana {
 
     public Ventana(int cantidad, int satisfactorios, int fallidos) {
         ventana = new JFrame("Resultados");
+        Font fuente = new Font("Dialog", Font.BOLD, 15);
         JTextField texto1 = new JTextField("Cantidad total de Test: " + Integer.toString(cantidad));
+        texto1.setFont(fuente);
         JTextField texto2 = new JTextField("Cantidad de tests satisfactorios: " + Integer.toString(satisfactorios));
-        texto2.setBackground(Color.GREEN);
+       texto2.setBackground(Color.GREEN);
+
+        texto2.setFont(fuente);
         JTextField texto3 = new JTextField("Cantidad de tests fallidos: " + Integer.toString(fallidos));
-        texto3.setBackground(Color.red);
+        texto3.setBackground(Color.RED);
+
+        texto3.setFont(fuente);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setResizable(false);
         Dimension d = new Dimension();
@@ -29,8 +35,10 @@ public class Ventana {
     }
 
     public void agregarMetodosErroneos(String nombre) {
+        Font fuente = new Font("Dialog", Font.BOLD, 15);
         JTextField error = new JTextField(nombre);
-        error.setBackground(Color.red);
+        error.setBackground(Color.RED);
+        error.setFont(fuente);
         ventana.add(error);
     }
 
