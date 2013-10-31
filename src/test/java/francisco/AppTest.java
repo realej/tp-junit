@@ -33,6 +33,25 @@ public class AppTest
         assertTrue( true );
     }
     
-    
+	public void testAssertTrueWhenTrue() {
+		TestAsserts test = new TestAsserts();
+		assertTrue(test.assertTrue(true,"testAssertTrueWhenTrue"));
+		
+	}
+	
+	public void testAssertTrueWhenFalse() {
+		TestAsserts test = new TestAsserts();
+		assertTrue(test.assertTrue(true,"testAssertTrueWhenFalse"));	
+	}
+	
+	public void testAssertFalseWhenFalse() {
+		TestAsserts test = new TestAsserts();
+		assertTrue(test.assertTrue(true,"testAssertFalseWhenFalse"));			
+	}
+	
+	public void testAssertFalseWhenTrue() {
+		TestAsserts test = new TestAsserts();
+		assertTrue(test.assertTrue(true,"testAssertFalseWhenTrue"));	
+	}
     
 }

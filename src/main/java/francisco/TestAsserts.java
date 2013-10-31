@@ -1,6 +1,6 @@
 package francisco;
 
-public class TestAsserts extends Test {
+public class TestAsserts extends Tests {
 
 	public TestAsserts() {
 		super();
@@ -21,7 +21,6 @@ public class TestAsserts extends Test {
 	public void testAssertFalseWhenTrue() {
 		assertFalse(4 > 3,"testAssertTrueWhenTrue");
 	}
-	
 	
 	public void run() {
 		testAssertTrueWhenTrue();
