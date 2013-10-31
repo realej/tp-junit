@@ -18,15 +18,19 @@ public class TestRunner {
     }
 
     private void printResults() {
-
+        Ventana ventana = new Ventana(result.getTestCount(), result.getPasses().size(), result.getFailures().size());
 
         System.out.println("Cantidad total de Test: " + result.getTestCount());
         System.out.println("\033[32mCantidad de tests satisfactorios: " + result.getPasses().size());
         System.out.println("\033[31mCantidad de tests fallidos: " + result.getFailures().size());
+       
         for (TestState state : result.getFailures()) {
+            ventana.agregarMetodosErroneos(state.getState());
             System.out.println("\033[31mTest Fallido: " + state.getState());
+            
         }
-        Ventana ventana = new Ventana(result.getTestCount(), result.getPasses().size(), result.getFailures().size());
-
+        ventana.mostrar();
+        
+        
     }
 }
