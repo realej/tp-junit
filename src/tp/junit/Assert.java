@@ -12,12 +12,6 @@ public class Assert {
         }
     }
     
-    public static void assertNotTrue(boolean valor) throws Error {
-        if (valor != false) {
-            throw new Error();
-        }
-    }
-
     public static void assertFalse(boolean valor) throws Error {
         if (valor == true) {
             throw new Error();
@@ -29,5 +23,8 @@ public class Assert {
         if (!result) {
             throw new Error();
         }
+    }
+    public static void fail()throws Error{
+        throw new Error();
     }
 }
