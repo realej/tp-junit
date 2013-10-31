@@ -16,7 +16,9 @@ public class AllTest {
         TestRunner handler = new TestRunner();
         TestSuite suite = new TestSuite();
         TestCalculadora tcalc = new TestCalculadora();
+        TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
         suite.addTest(tcalc);
+        suite.addTest(tRestaCalc);
         handler.init(suite);
     }
 }
