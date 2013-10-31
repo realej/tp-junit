@@ -4,29 +4,37 @@
  */
 package tp.junit;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Julian
  */
 public class TestResult {
 
-    public enum State {
-
-        PASSED, FAIL, ERROR
-    }
-    private String mensaje = "";
-    private State stt;
+    private ArrayList<TestState> failures = new ArrayList<>();
+    private ArrayList<TestState> passes = new ArrayList<>();
+    private int tCount;
 
     public TestResult() {
+        tCount = 0;
     }
 
-    public TestResult(State st, String msg) {
-        this.mensaje = msg;
-        this.stt = st;
+    public void addFail(String msg) {
+        this.failures.add(new TestState(msg, TestState.State.FAIL));
+        this.tCount++;
     }
 
-    public void setEstado(State st, String msg) {
-        this.mensaje = msg;
-        this.stt = st;
+    public void addPassed(String msg) {
+        this.failures.add(new TestState(msg, TestState.State.PASSED));
+        this.tCount++;
+    }
+
+    public ArrayList<TestState> getFailures() {
+        return this.failures;
+    }
+
+    public ArrayList<TestState> getPasses() {
+        return this.passes;
     }
 }
