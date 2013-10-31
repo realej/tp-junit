@@ -26,7 +26,7 @@ public class TestResult {
     }
 
     public void addPassed(String msg) {
-        this.failures.add(new TestState(msg, TestState.State.PASSED));
+        this.passes.add(new TestState(msg, TestState.State.PASSED));
         this.tCount++;
     }
 
