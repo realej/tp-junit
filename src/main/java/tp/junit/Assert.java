@@ -2,6 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
+* Responsabilidad: Contener los asserts con los que se van a probar
+* los valores y enviar excepciones si alguno fallo.
+*/
 package tp.junit;
 
 public class Assert {
