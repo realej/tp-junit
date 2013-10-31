@@ -2,6 +2,8 @@ package francisco;
 
 import java.io.IOException;
 
+import com.sun.xml.internal.bind.v2.runtime.Name;
+
 public abstract class Test {
 	
 	Reporter report;
@@ -12,32 +14,32 @@ public abstract class Test {
 	
 	public abstract void run(); 
 	
-	protected void assertTrue(boolean expresion) {
+	protected void assertTrue(boolean expresion,String nameTest) throws IOException {
 		
 		if (expresion == true) {
-			reportTrue();
+			reportTrue(nameTest);
 		}
 		else {
-			reportFalse();
+			reportFalse(nameTest);
 		}
 	}
 	
-	protected void assertFalse(boolean expresion) {
+	protected void assertFalse(boolean expresion,String nameTest) throws IOException {
 		
 		if (expresion == false) {
-			reportTrue();
+			reportTrue(nameTest);
 		}
 		else {
-			reportFalse();
+			reportFalse(nameTest);
 		}
 	}
 	
-	protected void reportTrue() {
-		
+	protected void reportTrue(String nameTest) throws IOException {
+		report.reportTrueTest(nameTest);
 	}
 	
-	protected void reportFalse() {
-		
+	protected void reportFalse(String nameTest) throws IOException {
+		report.reportFalseTest(nameTest);
 	}
 
 }

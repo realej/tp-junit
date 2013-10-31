@@ -13,14 +13,16 @@ public class Reporter {
 		fileReport=new File(nameFile);
 	}
 	
-	public void reportTrueTest(int numTest) throws IOException {
-		FileWriter write=new FileWriter(fileReport,true);
-		write.close();
+	public void reportTrueTest(String nameTest) throws IOException {
+		FileWriter writerTrue=new FileWriter(fileReport,true);
+		writerTrue.write(nameTest + "Test correcto");
+		writerTrue.close();
 		
 	}
 	
-	public void reportFalseTest() throws IOException {
-		FileWriter write=new FileWriter(fileReport,true);
-		write.close();
+	public void reportFalseTest(String nameTest) throws IOException {
+		FileWriter writerFalse=new FileWriter(fileReport,true);
+		writerFalse.write(nameTest + "Test incorrecto");
+		writerFalse.close();
 	}
 }
