@@ -1,0 +1,10 @@
+Hipotesis:
+1)un test por clase( despues vemos como lo solucionamos) 
+2) Se tiene que Sobreescribir el metodo runTest() con el contenido del test adentro.
+
+1º) el usuario crea el main
+2º) Se le proporciona una clase TestSuite y TestCase
+3º) Instancia su clase test (esta clase test tiene que heredar de TestCase)
+4º) usa un metodo addTest(TestCase suClaseTest) sobre un objeto TestSuite. Ej TestSuite suite = new TestSuite; suite.addTest(miTest);
+
+por untimo tiene que ejecutar: suite.run() lo que hace es iterar por todos los test cases y llamar a runTest.
