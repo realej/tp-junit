@@ -20,5 +20,5 @@ public class AllTest {
         suite.addTest(tcalc);
         suite.addTest(tRestaCalc);
         handler.init(suite);
-    }
+     }
 }
