@@ -19,8 +19,8 @@ public class TestRunner {
 
     private void printResults() {
         System.out.println("Cantidad total de Test: " + result.getTestCount());
-        System.out.println("Cantidad de tests satisfactorios: " + result.getPasses().size());
-        System.out.println("Cantidad de tests fallidos: " + result.getFailures().size());
+        System.out.println("\033[32mCantidad de tests satisfactorios: " + result.getPasses().size());
+        System.out.println("\033[31mCantidad de tests fallidos: " + result.getFailures().size());
         for (TestState state : result.getFailures()) {
             System.out.println("Test Fallido: " + state.getState());
         }
