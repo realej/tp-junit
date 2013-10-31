@@ -11,7 +11,7 @@ public class TestRestaCalculadora extends TestCase {
 
     public void metodoDePrueba2() {
         Calculadora cal = new Calculadora();
-        assertTrue(cal.resta(1, 1) == 0);
+        assertTrue(cal.resta(1, 1) == 1);
     }
 
     @Override
