@@ -21,4 +21,8 @@ public class TestState {
         this.mensage = msg;
         this.stt = st;
     }
+    
+    public String getState() {
+        return this.mensage;
+    }
 }

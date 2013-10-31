@@ -37,4 +37,8 @@ public class TestResult {
     public ArrayList<TestState> getPasses() {
         return this.passes;
     }
+    
+    public int getTestCount() {
+        return this.tCount;
+    }
 }
