@@ -7,17 +7,17 @@ package tp.junit;
 import java.util.ArrayList;
 
 public class TestSuite implements Test {
-    private ArrayList<Test> tests = new ArrayList<Test>();
-    
+
+    private ArrayList<Test> tests = new ArrayList<>();
+
     @Override
-    public void run(){
-        for(Test test: tests){
-            test.run();
-        }       
+    public void run(TestResult result) {
+        for (Test test : tests) {
+            test.run(result);
+        }
     }
-    
-    public void addTest(Test test){ 
+
+    public void addTest(Test test) {
         tests.add(test);
     }
-    
 }

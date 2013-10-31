@@ -7,13 +7,14 @@ package tp.junit;
 public class TestCase implements Test {
 
     @Override
-    public void run() {
+    public void run(TestResult result) {
         try {
             runTest();
+            result.addPassed("");
         } catch (Error e) {
             StackTraceElement[] f = e.getStackTrace();
-            System.out.println( f[1].getClassName() );
-            System.out.println( f[1].getMethodName() );
+            result.addFail(f[1].getClassName());
+
         }
     }
 
