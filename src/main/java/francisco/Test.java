@@ -1,44 +1,45 @@
 package francisco;
-
-import java.io.IOException;
-
-import com.sun.xml.internal.bind.v2.runtime.Name;
+import java.lang.String;
 
 public abstract class Test {
 	
 	Reporter report;
 	
-	public Test() throws IOException {
-		report = new Reporter("Reporte Tests");
+	public Test() {
+		report = new Reporter();
 	}
 	
 	public abstract void run(); 
 	
-	protected void assertTrue(boolean expresion,String nameTest) throws IOException {
+	protected boolean assertTrue(boolean expresion,String nameTest) {
 		
 		if (expresion == true) {
 			reportTrue(nameTest);
+			return true;
 		}
 		else {
 			reportFalse(nameTest);
+			return false;
 		}
 	}
 	
-	protected void assertFalse(boolean expresion,String nameTest) throws IOException {
+	protected boolean assertFalse(boolean expresion,String nameTest) {
 		
 		if (expresion == false) {
 			reportTrue(nameTest);
+			return true;
 		}
 		else {
 			reportFalse(nameTest);
+			return false;
 		}
 	}
 	
-	protected void reportTrue(String nameTest) throws IOException {
+	protected void reportTrue(String nameTest) {
 		report.reportTrueTest(nameTest);
 	}
 	
-	protected void reportFalse(String nameTest) throws IOException {
+	protected void reportFalse(String nameTest) {
 		report.reportFalseTest(nameTest);
 	}
 
