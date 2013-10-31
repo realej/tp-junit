@@ -4,7 +4,7 @@
  */
 package tp.junit;
 
-public class TestCase implements Test {
+public abstract class TestCase extends Assert implements Test {
 
     @Override
     public void run(TestResult result) {
@@ -18,7 +18,5 @@ public class TestCase implements Test {
         }
     }
 
-    public void runTest() {
-        //tenes que redifinirlo en el usuario
-    }
+    abstract public void runTest();
 }

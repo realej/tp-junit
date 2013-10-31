@@ -1,7 +1,7 @@
 package aplicacion;
 
 import tp.junit.*;
-import static tp.junit.Assert.*;
+//import static tp.junit.Assert.*;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
