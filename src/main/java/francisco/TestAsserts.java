@@ -7,11 +7,27 @@ public class TestAsserts extends Test {
 	}
 
 	public void testAssertTrueWhenTrue() {
-		assertTrue(assertTrue(4 > 3,"testAssertTrueWhenTrue"),"testCuatroMayorQueTres");
+		assertTrue(4 > 3,"testAssertTrueWhenTrue");
 	}
+	
+	public void testAssertTrueWhenFalse() {
+		assertTrue(4 < 3,"testAssertTrueWhenTrue");
+	}
+	
+	public void testAssertFalseWhenFalse() {
+		assertFalse(4 < 3,"testAssertTrueWhenTrue");
+	}
+	
+	public void testAssertFalseWhenTrue() {
+		assertFalse(4 > 3,"testAssertTrueWhenTrue");
+	}
+	
 	
 	public void run() {
 		testAssertTrueWhenTrue();
+		testAssertTrueWhenFalse();
+		testAssertFalseWhenFalse();
+		testAssertFalseWhenTrue();
 	}
 
 }
