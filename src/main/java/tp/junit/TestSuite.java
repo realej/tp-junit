@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class TestSuite implements Test {
 
     private ArrayList<Test> tests = new ArrayList<Test>();
-
+    private SetUp setUp;
+    
     @Override
     public void run(TestResult result) {
         for (Test test : tests) {
@@ -25,4 +26,9 @@ public class TestSuite implements Test {
     public void addTest(Test test) {
         tests.add(test);
     }
+    
+    public void addSetUp(SetUp setup){
+       setUp = setup;
+    }
+    
 }
