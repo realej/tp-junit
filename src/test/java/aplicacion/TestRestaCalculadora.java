@@ -6,11 +6,11 @@ package aplicacion;
 
 import tp.junit.*;
 
-
 public class TestRestaCalculadora extends TestCase {
 
     public void metodoDePrueba2() {
         Calculadora cal = new Calculadora();
+        //Calculadora cal = (Calculadora) getSetUp().ObtenerAtributo(0);
         assertTrue(cal.resta(1, 1) == 1);
     }
 
@@ -19,4 +19,3 @@ public class TestRestaCalculadora extends TestCase {
         this.metodoDePrueba2();
     }
 }
-   
