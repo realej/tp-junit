@@ -7,11 +7,20 @@
  */
 package tp.junit;
 
-public interface Test {
 
+public abstract class Test extends Assert {
+
+    SetUp setUp = null;
+
+    public void setAtributos(SetUp setup) {
+        setUp = setup;
+    }
     /*
      * Metodo para correr el Test
      */
-    public void run(TestResult result);
 
+    public SetUp getSetUp(){
+        return setUp;
+    }
+    public abstract void run(TestResult result);
 }
