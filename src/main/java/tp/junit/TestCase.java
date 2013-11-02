@@ -11,8 +11,8 @@
  */
 package tp.junit;
 
-public abstract class TestCase extends Assert implements Test {
-
+public abstract class TestCase  extends Test {
+    
     @Override
     public void run(TestResult result) {
         try {
@@ -24,6 +24,6 @@ public abstract class TestCase extends Assert implements Test {
 
         }
     }
-
+  
     abstract public void runTest();
 }
