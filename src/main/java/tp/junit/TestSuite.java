@@ -18,12 +18,14 @@ public class TestSuite extends Test {
 
     @Override
     public void run(TestResult result) {
-        
-      for (Test test : tests) {
-         //Aca falta comparar si es un suite o no
-          test.setAtributos(setUp);
-         test.run(result);
-         setUp.tearDown();
+
+        for (Test test : tests) {
+            //Aca falta comparar si es un suite o no
+            test.setAtributos(setUp);
+            test.run(result);
+            if (setUp != null) {
+                setUp.tearDown();
+            }
         }
     }
 
