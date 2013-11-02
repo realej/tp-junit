@@ -17,8 +17,12 @@ public class AllTest {
         TestSuite suite = new TestSuite();
         TestCalculadora tcalc = new TestCalculadora();
         TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
+        testMultiplicacionCalculadora tSetUp = new testMultiplicacionCalculadora();
+        TestSetUp setup = new TestSetUp();
+        suite.addSetUp(setup);
         suite.addTest(tcalc);
         suite.addTest(tRestaCalc);
+        suite.addTest(tSetUp);
         handler.init(suite);
      }
 }
