@@ -21,5 +21,16 @@ public abstract class SetUp {
         return atributos.get(posicion);
     }
     
+    public ArrayList<Object> getArrayList(){
+        return atributos;
+    }
+    
+    public void tearDown(){
+        if (atributos != null){
+        atributos.clear();
+        agregarAtributos();
+        }
+    }
+    
     public abstract void agregarAtributos();
 }
