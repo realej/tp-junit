@@ -9,7 +9,7 @@
  */
 package tp.junit;
 
-public class TestRunner {
+public class TestRunner  {
 
     private TestResult result;
 
