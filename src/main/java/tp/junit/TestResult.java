@@ -19,11 +19,13 @@ public class TestResult {
 
     private ArrayList<TestState> failures;
     private ArrayList<TestState> passes;
+    private ArrayList<TestState> error;
     private int tCount;
 
     public TestResult() {
         this.passes = new ArrayList<TestState>();
         this.failures = new ArrayList<TestState>();
+        this.error = new ArrayList<TestState>();
         tCount = 0;
     }
 
@@ -37,12 +39,21 @@ public class TestResult {
         this.tCount++;
     }
 
+    public void addError(String msg) {
+        this.error.add(new TestState(msg, TestState.State.ERROR));
+        this.tCount++;
+    }
+
     public ArrayList<TestState> getFailures() {
         return this.failures;
     }
 
     public ArrayList<TestState> getPasses() {
         return this.passes;
+    }
+
+    public ArrayList<TestState> getError() {
+        return this.error;
     }
 
     public int getTestCount() {

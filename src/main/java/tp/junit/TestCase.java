@@ -11,19 +11,22 @@
  */
 package tp.junit;
 
-public abstract class TestCase  extends Test {
-    
+public abstract class TestCase extends Test {
+
     @Override
     public void run(TestResult result) {
         try {
             runTest();
-            result.addPassed("");
-        } catch (Error e) {
+            result.addPassed(this.getClass().getName());
+        } catch (AssertException e) {
             StackTraceElement[] f = e.getStackTrace();
             result.addFail(f[1].getClassName());
 
+        } catch (Throwable e) {
+            StackTraceElement[] f = e.getStackTrace();
+            result.addError(f[1].getClassName());
         }
     }
-  
+
     abstract public void runTest();
 }
