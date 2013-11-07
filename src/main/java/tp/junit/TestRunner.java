@@ -9,7 +9,7 @@
  */
 package tp.junit;
 
-public class TestRunner  {
+public class TestRunner {
 
     private TestResult result;
 
@@ -25,13 +25,24 @@ public class TestRunner  {
     private void printResults() {
         Ventana ventana = new Ventana(result.getTestCount(), result.getPasses().size(), result.getFailures().size());
 
-        System.out.println("Cantidad total de Test: " + result.getTestCount());
-        System.out.println("\033[32mCantidad de tests satisfactorios: " + result.getPasses().size());
-        System.out.println("\033[31mCantidad de tests fallidos: " + result.getFailures().size());
+        StringBuilder titleSummary = new StringBuilder();
+        if (!result.getFailures().isEmpty()) {
+            titleSummary.append("[failure] Summary");
+        } else {
+            titleSummary.append("[success] Summary");
+        }
+        
+        titleSummary.append(System.getProperty("line.separator"));
+        titleSummary.append("=====================");
+
+        System.out.println(titleSummary.toString());
+        System.out.println("Run: " + result.getTestCount());
+        System.out.println("Errors: " + result.getError().size());
+        System.out.println("Failures: " + result.getFailures().size());
 
         for (TestState state : result.getFailures()) {
             ventana.agregarMetodosErroneos(state.getState());
-            System.out.println("\033[31mTest Fallido: " + state.getState());
+            System.out.println("Test Fallido: " + state.getState());
 
         }
         ventana.mostrar();
