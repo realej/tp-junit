@@ -12,13 +12,22 @@ package tp.junit;
 import java.util.ArrayList;
 
 public class TestSuite extends Test {
-    
+
     private ArrayList<Test> tests = new ArrayList<Test>();
     private SetUp setUp = null;
+    private String suiteName;
+
+    public TestSuite(String name) {
+        suiteName = name;
+     }
     
+    public String getSuiteName() {
+        return this.suiteName;
+    }
+
     @Override
     public void run(TestResult result) {
-        
+
         for (Test test : tests) {
             //Aca falta comparar si es un suite o no
             if (!test.classType().equals("TestSuite")) {
@@ -30,15 +39,15 @@ public class TestSuite extends Test {
             }
         }
     }
-    
+
     public void addTest(Test test) {
         tests.add(test);
     }
-    
+
     public void addSetUp(SetUp setup) {
         setUp = setup;
     }
-    
+
     @Override
     public String classType() {
         String name = "TestSuite";

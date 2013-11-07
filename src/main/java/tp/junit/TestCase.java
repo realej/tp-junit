@@ -13,18 +13,21 @@ package tp.junit;
 
 public abstract class TestCase extends Test {
 
+    private String testName;
     @Override
     public void run(TestResult result) {
+        
+        testName = this.getClass().getName();
+        testName = testName.substring(testName.lastIndexOf(".")+1);
+        
         try {
             runTest();
-            result.addPassed(this.getClass().getName());
+            result.addPassed(testName);
         } catch (AssertException e) {
-            StackTraceElement[] f = e.getStackTrace();
-            result.addFail(f[1].getClassName());
+            result.addFail(testName);
 
         } catch (Throwable e) {
-            StackTraceElement[] f = e.getStackTrace();
-            result.addError(f[1].getClassName());
+            result.addError(testName);
         }
     }
 

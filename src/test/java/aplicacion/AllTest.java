@@ -14,7 +14,7 @@ public class AllTest {
 
     public static void main(String[] args) {
         TestRunner handler = new TestRunner();
-        TestSuite suite = new TestSuite();
+        TestSuite suite = new TestSuite("suite");
         TestCalculadora tcalc = new TestCalculadora();
         TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
         testMultiplicacionCalculadora tSetUp = new testMultiplicacionCalculadora();

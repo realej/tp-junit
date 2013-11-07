@@ -14,10 +14,10 @@ public class TestRunner {
     private TestResult result;
 
     public TestRunner() {
-        this.result = new TestResult();
     }
 
     public void init(TestSuite suite) {
+        this.result = new TestResult(suite.getSuiteName());
         suite.run(result);
         this.printResults();
     }

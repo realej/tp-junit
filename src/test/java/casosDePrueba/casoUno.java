@@ -23,9 +23,10 @@ public class casoUno {
 
     public static void main(String[] args) {
         TestRunner handler = new TestRunner();
-        TestSuite B = new TestSuite();
+        TestSuite B = new TestSuite("B");
         TestA A = new TestA();
         B.addTest(A);
         handler.init(B);
+        
     }
 }

@@ -20,27 +20,29 @@ public class TestResult {
     private ArrayList<TestState> failures;
     private ArrayList<TestState> passes;
     private ArrayList<TestState> error;
+    private String suiteName;
     private int tCount;
 
-    public TestResult() {
+    public TestResult(String sName) {
         this.passes = new ArrayList<TestState>();
         this.failures = new ArrayList<TestState>();
         this.error = new ArrayList<TestState>();
         tCount = 0;
+        suiteName = sName;
     }
 
     public void addFail(String msg) {
-        this.failures.add(new TestState(msg, TestState.State.FAIL));
+        this.failures.add(new TestState(suiteName + "." + msg, TestState.State.FAIL));
         this.tCount++;
     }
 
     public void addPassed(String msg) {
-        this.passes.add(new TestState(msg, TestState.State.PASSED));
+        this.passes.add(new TestState(suiteName + "." + msg, TestState.State.PASSED));
         this.tCount++;
     }
 
     public void addError(String msg) {
-        this.error.add(new TestState(msg, TestState.State.ERROR));
+        this.error.add(new TestState(suiteName + "." + msg, TestState.State.ERROR));
         this.tCount++;
     }
 
