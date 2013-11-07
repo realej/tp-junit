@@ -23,4 +23,6 @@ public abstract class Test extends Assert {
         return setUp;
     }
     public abstract void run(TestResult result);
+
+    public abstract String className();
 }

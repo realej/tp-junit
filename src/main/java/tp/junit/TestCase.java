@@ -29,4 +29,10 @@ public abstract class TestCase extends Test {
     }
 
     abstract public void runTest();
+
+    @Override
+    public String className() {
+        String name = "TestCase";
+        return name;
+    }
 }
