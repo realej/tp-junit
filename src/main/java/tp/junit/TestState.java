@@ -28,4 +28,16 @@ public class TestState {
     public String getState() {
         return this.mensage;
     }
+    
+    public String getResultTestCase() {
+        return "["+stt.toString()+"]";
+    }
+    
+    public String getSuiteNameTestCase() {
+        return mensage.substring(0,mensage.lastIndexOf("."));
+    }
+    
+    public String getTestCaseName() {
+        return mensage.substring(mensage.lastIndexOf(".")+1); 
+    }
 }

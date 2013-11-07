@@ -22,16 +22,25 @@ public class TestRunner {
         this.printResults();
     }
 
-    private void printResults() {
-        Ventana ventana = new Ventana(result.getTestCount(), result.getPasses().size(), result.getFailures().size());
+    private void printResultTestCase(TestState state) {
+        StringBuilder resultTestCase = new StringBuilder();
+        resultTestCase.append(state.getSuiteNameTestCase());
+        resultTestCase.append(System.getProperty("line.separator"));
+        resultTestCase.append("---------------------");
+        resultTestCase.append(System.getProperty("line.separator"));
+        resultTestCase.append(state.getResultTestCase()).append(" ").append(state.getTestCaseName());
+        resultTestCase.append(System.getProperty("line.separator"));
+        System.out.println(resultTestCase.toString());
+    }
 
+    private void printSummary(TestResult result) {
         StringBuilder titleSummary = new StringBuilder();
         if (!result.getFailures().isEmpty()) {
             titleSummary.append("[failure] Summary");
         } else {
             titleSummary.append("[success] Summary");
         }
-        
+
         titleSummary.append(System.getProperty("line.separator"));
         titleSummary.append("=====================");
 
@@ -39,12 +48,26 @@ public class TestRunner {
         System.out.println("Run: " + result.getTestCount());
         System.out.println("Errors: " + result.getError().size());
         System.out.println("Failures: " + result.getFailures().size());
+    }
+
+    private void printResults() {
+        Ventana ventana = new Ventana(result.getTestCount(), result.getPasses().size(), result.getFailures().size());
 
         for (TestState state : result.getFailures()) {
+            printResultTestCase(state);
             ventana.agregarMetodosErroneos(state.getState());
-            System.out.println("Test Fallido: " + state.getState());
-
         }
+
+        for (TestState state : result.getPasses()) {
+            printResultTestCase(state);
+        }
+
+        for (TestState state : result.getError()) {
+            printResultTestCase(state);
+         }
+        
+        printSummary(result);
+
         ventana.mostrar();
 
     }
