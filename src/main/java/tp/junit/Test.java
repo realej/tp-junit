@@ -25,4 +25,8 @@ public abstract class Test extends Assert {
     public abstract void run(TestResult result);
 
     public abstract String classType();
+    
+    public abstract String getName();
+    
+    public abstract void regularExp(String regex);
 }

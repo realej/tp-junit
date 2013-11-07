@@ -21,6 +21,12 @@ public class TestRunner {
         suite.run(result);
         this.printResults();
     }
+    public void init(TestSuite suite,String regex){
+        this.result = new TestResult();
+        suite.regularExp(regex);
+        suite.run(result);
+        this.printResults();
+    }
 
     private void printResultTestCase(TestState state) {
         StringBuilder resultTestCase = new StringBuilder();

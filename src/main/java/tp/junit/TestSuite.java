@@ -21,7 +21,8 @@ public class TestSuite extends Test {
         suiteName = name;
     }
 
-    public String getSuiteName() {
+    @Override
+    public String getName() {
         return this.suiteName;
     }
 
@@ -30,7 +31,7 @@ public class TestSuite extends Test {
         result.addSuiteName(this.suiteName);
 
         for (Test test : tests) {
-            //Aca falta comparar si es un suite o no
+            
             if (!test.classType().equals("TestSuite")) {
                 test.setAtributos(setUp);
             }
@@ -53,5 +54,12 @@ public class TestSuite extends Test {
     public String classType() {
         String name = "TestSuite";
         return name;
+    }
+    
+    @Override
+    public void regularExp(String regex){
+        for (Test test : tests){
+            test.regularExp(regex);
+        }
     }
 }

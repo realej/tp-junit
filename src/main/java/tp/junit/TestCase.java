@@ -14,20 +14,30 @@ package tp.junit;
 public abstract class TestCase extends Test {
 
     private String testName;
+    private boolean run = true;
+
+    public TestCase() {
+        testName = this.getClass().getName();
+        testName = testName.substring(testName.lastIndexOf(".") + 1);
+    }
+
+    @Override
+    public String getName() {
+        return testName;
+    }
+
     @Override
     public void run(TestResult result) {
-        
-        testName = this.getClass().getName();
-        testName = testName.substring(testName.lastIndexOf(".")+1);
-        
-        try {
-            runTest();
-            result.addPassed(testName);
-        } catch (AssertException e) {
-            result.addFail(testName);
+        if (run == true) {
+            try {
+                runTest();
+                result.addPassed(testName);
+            } catch (AssertException e) {
+                result.addFail(testName);
 
-        } catch (Throwable e) {
-            result.addError(testName);
+            } catch (Throwable e) {
+                result.addError(testName);
+            }
         }
     }
 
@@ -37,5 +47,12 @@ public abstract class TestCase extends Test {
     public String classType() {
         String name = "TestCase";
         return name;
+    }
+    
+    @Override
+    public void regularExp(String regex){
+        if( !testName.matches(regex) ){
+            run =false;
+        }
     }
 }
