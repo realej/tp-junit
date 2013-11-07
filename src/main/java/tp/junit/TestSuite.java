@@ -21,7 +21,7 @@ public class TestSuite extends Test {
         
         for (Test test : tests) {
             //Aca falta comparar si es un suite o no
-            if (!test.className().equals("TestSuite")) {
+            if (!test.classType().equals("TestSuite")) {
                 test.setAtributos(setUp);
             }
             test.run(result);
@@ -40,7 +40,7 @@ public class TestSuite extends Test {
     }
     
     @Override
-    public String className() {
+    public String classType() {
         String name = "TestSuite";
         return name;
     }

@@ -31,7 +31,7 @@ public abstract class TestCase extends Test {
     abstract public void runTest();
 
     @Override
-    public String className() {
+    public String classType() {
         String name = "TestCase";
         return name;
     }
