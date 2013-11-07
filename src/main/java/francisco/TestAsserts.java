@@ -24,7 +24,12 @@ public class TestAsserts extends Tests {
 		assertFalse(4 > 3,"testAssertTrueWhenTrue");
 	}
 	
+	public void setup() {
+		//TODO: Logica del setup
+	}
+	
 	public void run() {
+		setup();
 		testAssertTrueWhenTrue();
 		testAssertTrueWhenFalse();
 		testAssertFalseWhenFalse();
