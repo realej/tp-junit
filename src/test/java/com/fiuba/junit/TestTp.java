@@ -192,4 +192,29 @@ public class TestTp {
         }
         assertTrue(fallo);
     }
+    
+    @Test
+    public void testSuiteRegexMatch() {
+        TestSuite suite = new TestSuite("suite");
+        TestResult result = new TestResult();
+        TestCalculadora tcalc = new TestCalculadora();
+        TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
+        suite.addTest(tcalc);
+        suite.addTest(tRestaCalc);
+        suite.regularExp(".*Resta.*");
+        suite.run(result);
+        assertEquals(1, result.getTestCount());
+    }
+    
+    public void testSuiteRegexNotMatch() {
+        TestSuite suite = new TestSuite("suite");
+        TestResult result = new TestResult();
+        TestCalculadora tcalc = new TestCalculadora();
+        TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
+        suite.addTest(tcalc);
+        suite.addTest(tRestaCalc);
+        suite.regularExp(".*Ninguno.*");
+        suite.run(result);
+        assertEquals(0, result.getTestCount());
+    }
 }
