@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import tp.junit.TestCase;
 import tp.junit.TestResult;
 import tp.junit.TestSuite;
 
@@ -148,5 +149,17 @@ public class TestTp {
         suite.addTest(tRestaCalc);
         suite.run(result);
         assertEquals(2, result.getTestCount());
+    }
+    @Test
+    public void testTestCaseRegexTrue(){
+        TestCase test = new TestCalculadora();
+        test.regularExp(".*dora");
+        assertTrue(test.isRunner());
+    }
+    @Test
+    public void testTestCaseRegexFail(){
+        TestCase test = new TestCalculadora();
+        test.regularExp(".*cualquiera");
+        assertFalse(test.isRunner());
     }
 }

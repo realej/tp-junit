@@ -15,7 +15,7 @@ public abstract class TestCase extends Test {
 
     private String testName;
     private boolean run = true;
-
+    
     public TestCase() {
         testName = this.getClass().getName();
         testName = testName.substring(testName.lastIndexOf(".") + 1);
@@ -54,5 +54,8 @@ public abstract class TestCase extends Test {
         if( !testName.matches(regex) ){
             run =false;
         }
+    }
+    public boolean isRunner(){
+        return run;
     }
 }

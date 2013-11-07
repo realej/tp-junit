@@ -25,7 +25,7 @@ public class AllTest {
         suite.addTest(suite1);
         suite1.addTest(tRestaCalc);
         suite.addTest(tSetUp);
-        //handler.init(suite);
-        handler.init(suite,".*Resta.*");
+        handler.init(suite);
+        //handler.init(suite,".*Resta.*");
     }
 }
