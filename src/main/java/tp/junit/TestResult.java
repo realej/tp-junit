@@ -20,17 +20,25 @@ public class TestResult {
     private ArrayList<TestState> failures;
     private ArrayList<TestState> passes;
     private ArrayList<TestState> error;
-    private String suiteName;
+    private String suiteName = "";
     private int tCount;
 
-    public TestResult(String sName) {
+    public TestResult() {
         this.passes = new ArrayList<TestState>();
         this.failures = new ArrayList<TestState>();
         this.error = new ArrayList<TestState>();
         tCount = 0;
-        suiteName = sName;
     }
 
+    public void addSuiteName(String name){
+        if ("".equals(this.suiteName)) { 
+            this.suiteName = name;
+        }
+        else {
+            this.suiteName += ("."+name);
+        }
+    }
+    
     public void addFail(String msg) {
         this.failures.add(new TestState(suiteName + "." + msg, TestState.State.FAIL));
         this.tCount++;

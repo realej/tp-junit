@@ -17,7 +17,7 @@ public class TestRunner {
     }
 
     public void init(TestSuite suite) {
-        this.result = new TestResult(suite.getSuiteName());
+        this.result = new TestResult();
         suite.run(result);
         this.printResults();
     }

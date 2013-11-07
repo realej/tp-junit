@@ -44,7 +44,7 @@ public class TestTp {
     @Test
     public void testSuiteRunFalla() {
         TestSuite suite = new TestSuite("suite");
-        TestResult result = new TestResult(suite.getSuiteName());
+        TestResult result = new TestResult();
         TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
         suite.addTest(tRestaCalc);
         suite.run(result);
@@ -54,7 +54,7 @@ public class TestTp {
     @Test
     public void testSuiteRunCorrecta() {
         TestSuite suite = new TestSuite("suite");
-        TestResult result = new TestResult(suite.getSuiteName());
+        TestResult result = new TestResult();
         TestRestaCalculadoraCorrecta tRestaCalc = new TestRestaCalculadoraCorrecta();
         suite.addTest(tRestaCalc);
         suite.run(result);
@@ -141,7 +141,7 @@ public class TestTp {
     @Test
     public void testSuiteAddTest() {
         TestSuite suite = new TestSuite("suite");
-        TestResult result = new TestResult(suite.getSuiteName());
+        TestResult result = new TestResult();
         TestCalculadora tcalc = new TestCalculadora();
         TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
         suite.addTest(tcalc);

@@ -19,14 +19,15 @@ public class TestSuite extends Test {
 
     public TestSuite(String name) {
         suiteName = name;
-     }
-    
+    }
+
     public String getSuiteName() {
         return this.suiteName;
     }
 
     @Override
     public void run(TestResult result) {
+        result.addSuiteName(this.suiteName);
 
         for (Test test : tests) {
             //Aca falta comparar si es un suite o no
