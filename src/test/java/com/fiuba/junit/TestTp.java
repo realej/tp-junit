@@ -150,16 +150,46 @@ public class TestTp {
         suite.run(result);
         assertEquals(2, result.getTestCount());
     }
+
     @Test
-    public void testTestCaseRegexTrue(){
+    public void testTestCaseRegexTrue() {
         TestCase test = new TestCalculadora();
         test.regularExp(".*dora");
         assertTrue(test.isRunner());
     }
+
     @Test
-    public void testTestCaseRegexFail(){
+    public void testTestCaseRegexFail() {
         TestCase test = new TestCalculadora();
         test.regularExp(".*cualquiera");
         assertFalse(test.isRunner());
+    }
+
+    @Test
+    public void testAddTestCaseSameName() {
+        TestSuite suite = new TestSuite("suite");
+        TestCalculadora tcalc = new TestCalculadora();
+        TestCalculadora tcalc2 = new TestCalculadora();
+        suite.addTest(tcalc);
+        boolean fallo = false;
+        try {
+            suite.addTest(tcalc2);
+        } catch (Error e) {
+            fallo = true;
+        }
+        assertTrue(fallo);
+    }
+
+    @Test
+    public void testAddTestSuiteSameName() {
+        TestSuite suite = new TestSuite("suite");
+        TestSuite suite2 = new TestSuite("suite");
+        boolean fallo = false;
+        try {
+            suite.addTest(suite2);
+        } catch (Error e) {
+            fallo = true;
+        }
+        assertTrue(fallo);
     }
 }
