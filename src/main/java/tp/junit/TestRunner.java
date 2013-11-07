@@ -9,6 +9,8 @@
  */
 package tp.junit;
 
+import java.util.ArrayList;
+
 public class TestRunner {
 
     private TestResult result;
@@ -28,17 +30,6 @@ public class TestRunner {
         this.printResults();
     }
 
-    private void printResultTestCase(TestState state) {
-        StringBuilder resultTestCase = new StringBuilder();
-        resultTestCase.append(state.getSuiteNameTestCase());
-        resultTestCase.append(System.getProperty("line.separator"));
-        resultTestCase.append("---------------------");
-        resultTestCase.append(System.getProperty("line.separator"));
-        resultTestCase.append(state.getResultTestCase()).append(" ").append(state.getTestCaseName());
-        resultTestCase.append(System.getProperty("line.separator"));
-        System.out.println(resultTestCase.toString());
-    }
-
     private void printSummary(TestResult result) {
         StringBuilder titleSummary = new StringBuilder();
         if (!result.getFailures().isEmpty()) {
@@ -56,25 +47,65 @@ public class TestRunner {
         System.out.println("Failures: " + result.getFailures().size());
     }
 
-    private void printResults() {
-        Ventana ventana = new Ventana(result.getTestCount(), result.getPasses().size(), result.getFailures().size());
-
-        for (TestState state : result.getFailures()) {
-            printResultTestCase(state);
-            ventana.agregarMetodosErroneos(state.getState());
-        }
-
+    private ArrayList<String> getSuitesNames() {
+        ArrayList<String> listSuitesNames = new ArrayList<String>();
         for (TestState state : result.getPasses()) {
-            printResultTestCase(state);
+            if (!listSuitesNames.contains(state.getSuiteNameTestCase())) {
+                listSuitesNames.add(state.getSuiteNameTestCase());
+            }
         }
-
+        for (TestState state : result.getFailures()) {
+            if (!listSuitesNames.contains(state.getSuiteNameTestCase())) {
+                listSuitesNames.add(state.getSuiteNameTestCase());
+            }
+        }
         for (TestState state : result.getError()) {
-            printResultTestCase(state);
-         }
+            if (!listSuitesNames.contains(state.getSuiteNameTestCase())) {
+                listSuitesNames.add(state.getSuiteNameTestCase());
+            }
+        }
+        return listSuitesNames;
+    }
+
+    private void printResultSuite(String suiteName) {
+        StringBuilder resultTestCase = new StringBuilder();
+        resultTestCase.append(suiteName);
+        resultTestCase.append(System.getProperty("line.separator"));
+        resultTestCase.append("---------------------");
+        resultTestCase.append(System.getProperty("line.separator"));
+        for (TestState state : result.getPasses()) {
+            if (state.getSuiteNameTestCase().equals(suiteName)) {
+                resultTestCase.append(state.getResultTestCase()).append(" ").append(state.getTestCaseName());
+                resultTestCase.append(System.getProperty("line.separator"));
+            }
+        }
+        for (TestState state : result.getFailures()) {
+            if (state.getSuiteNameTestCase().equals(suiteName)) {
+                resultTestCase.append(state.getResultTestCase()).append(" ").append(state.getTestCaseName());
+                resultTestCase.append(System.getProperty("line.separator"));
+            }
+        }
+        for (TestState state : result.getError()) {
+            if (state.getSuiteNameTestCase().equals(suiteName)) {
+                resultTestCase.append(state.getResultTestCase()).append(" ").append(state.getTestCaseName());
+                resultTestCase.append(System.getProperty("line.separator"));
+            }
+        }
+        System.out.println(resultTestCase.toString());
+    }
+
+    private void printResults() {
+  //      Ventana ventana = new Ventana(result.getTestCount(), result.getPasses().size(), result.getFailures().size());
+        
+        ArrayList<String> listSuites = getSuitesNames();
+        
+        for (String suite : listSuites ) {
+            printResultSuite(suite);
+        }
         
         printSummary(result);
 
-        ventana.mostrar();
+ //       ventana.mostrar();
 
     }
 }
