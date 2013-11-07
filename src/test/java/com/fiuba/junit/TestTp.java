@@ -5,6 +5,7 @@ package com.fiuba.junit;
  * and open the template in the editor.
  */
 import aplicacion.TestCalculadora;
+import aplicacion.TestError;
 import aplicacion.TestRestaCalculadora;
 import aplicacion.TestRestaCalculadoraCorrecta;
 import org.junit.After;
@@ -206,6 +207,7 @@ public class TestTp {
         assertEquals(1, result.getTestCount());
     }
     
+    @Test
     public void testSuiteRegexNotMatch() {
         TestSuite suite = new TestSuite("suite");
         TestResult result = new TestResult();
@@ -216,5 +218,15 @@ public class TestTp {
         suite.regularExp(".*Ninguno.*");
         suite.run(result);
         assertEquals(0, result.getTestCount());
+    }
+    
+    @Test
+    public void testSuiteRunError(){
+        TestSuite suite = new TestSuite("suite");
+        TestResult result = new TestResult();
+        TestError tError = new TestError();
+        suite.addTest(tError);
+        suite.run(result);
+        assertEquals(result.getError().size(),1);
     }
 }
