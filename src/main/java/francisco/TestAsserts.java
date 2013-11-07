@@ -1,9 +1,11 @@
 package francisco;
 
+import java.io.IOException;
+
 public class TestAsserts extends Tests {
 
-	public TestAsserts() {
-		super();
+	public TestAsserts(String nameTestSUite) throws IOException {
+		report = new Reporter("TestAsserts");
 	}
 
 	public void testAssertTrueWhenTrue() {
