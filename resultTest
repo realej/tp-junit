@@ -1,0 +1,10 @@
+suite
+---------------------
+[PASSED] TestCalculadora
+[FAIL] TestRestaCalculadora
+
+[failure] Summary
+=====================
+Run: 2
+Errors: 0
+Failures: 1

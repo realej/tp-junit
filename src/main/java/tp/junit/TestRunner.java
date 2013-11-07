@@ -9,42 +9,54 @@
  */
 package tp.junit;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class TestRunner {
 
     private TestResult result;
+    private File resultTxt;
 
     public TestRunner() {
+        resultTxt = new File("resultTest");
     }
 
-    public void init(TestSuite suite) {
+    public void init(TestSuite suite) throws IOException {
         this.result = new TestResult();
         suite.run(result);
         this.printResults();
     }
-    public void init(TestSuite suite,String regex){
+
+    public void init(TestSuite suite, String regex) throws IOException {
         this.result = new TestResult();
         suite.regularExp(regex);
         suite.run(result);
         this.printResults();
     }
 
-    private void printSummary(TestResult result) {
-        StringBuilder titleSummary = new StringBuilder();
+    private void printSummary(TestResult result, PrintWriter pw) throws IOException {
+        StringBuilder summary = new StringBuilder();
         if (!result.getFailures().isEmpty()) {
-            titleSummary.append("[failure] Summary");
+            summary.append("[failure] Summary");
         } else {
-            titleSummary.append("[success] Summary");
+            summary.append("[success] Summary");
         }
 
-        titleSummary.append(System.getProperty("line.separator"));
-        titleSummary.append("=====================");
-
-        System.out.println(titleSummary.toString());
-        System.out.println("Run: " + result.getTestCount());
-        System.out.println("Errors: " + result.getError().size());
-        System.out.println("Failures: " + result.getFailures().size());
+        summary.append(System.getProperty("line.separator"));
+        summary.append("=====================");
+        summary.append(System.getProperty("line.separator"));
+        summary.append("Run: " + result.getTestCount());
+        summary.append(System.getProperty("line.separator"));
+        summary.append("Errors: " + result.getError().size());
+        summary.append(System.getProperty("line.separator"));
+        summary.append("Failures: " + result.getFailures().size());
+        summary.append(System.getProperty("line.separator"));
+        System.out.println(summary.toString());
+        pw.append(summary.toString());
     }
 
     private ArrayList<String> getSuitesNames() {
@@ -67,7 +79,7 @@ public class TestRunner {
         return listSuitesNames;
     }
 
-    private void printResultSuite(String suiteName) {
+    private void printResultSuite(String suiteName, PrintWriter pw) throws IOException {
         StringBuilder resultTestCase = new StringBuilder();
         resultTestCase.append(suiteName);
         resultTestCase.append(System.getProperty("line.separator"));
@@ -91,21 +103,24 @@ public class TestRunner {
                 resultTestCase.append(System.getProperty("line.separator"));
             }
         }
+        resultTestCase.append(System.getProperty("line.separator"));
         System.out.println(resultTestCase.toString());
+        pw.append(resultTestCase.toString());
     }
 
-    private void printResults() {
-  //      Ventana ventana = new Ventana(result.getTestCount(), result.getPasses().size(), result.getFailures().size());
-        
+    private void printResults() throws IOException {
+        FileWriter fileTxt = new FileWriter(resultTxt);
+        BufferedWriter bw = new BufferedWriter(fileTxt);
+        PrintWriter pw = new PrintWriter(bw);
         ArrayList<String> listSuites = getSuitesNames();
-        
-        for (String suite : listSuites ) {
-            printResultSuite(suite);
+
+        for (String suite : listSuites) {
+            printResultSuite(suite, pw);
         }
-        
-        printSummary(result);
 
- //       ventana.mostrar();
+        printSummary(result, pw);
 
+        pw.close();
+        bw.close();
     }
 }
