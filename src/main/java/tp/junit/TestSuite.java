@@ -31,7 +31,7 @@ public class TestSuite extends Test {
         result.addSuiteName(this.suiteName);
 
         for (Test test : tests) {
-            
+
             if (!test.classType().equals("TestSuite")) {
                 test.setAtributos(setUp);
             }
@@ -43,6 +43,14 @@ public class TestSuite extends Test {
     }
 
     public void addTest(Test test) {
+        if (this.getName().equals(test.getName()) && "TestSuite".equals(test.classType())) {
+            throw new Error("Existe una suite con el mismo nombre");
+        }
+        for (Test ts : tests) {
+            if (ts.getName().equals(test.getName())) {
+                throw new Error("Existe un test con el mismo nombre");
+            }
+        }
         tests.add(test);
     }
 
@@ -55,10 +63,10 @@ public class TestSuite extends Test {
         String name = "TestSuite";
         return name;
     }
-    
+
     @Override
-    public void regularExp(String regex){
-        for (Test test : tests){
+    public void regularExp(String regex) {
+        for (Test test : tests) {
             test.regularExp(regex);
         }
     }
