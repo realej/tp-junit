@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public abstract class Test {
 	protected String name;
-	protected TestSuite testSuite;
 	protected ArrayList<String> tagList;
 	
-	private Test(String name, TestSuite testSuite, ArrayList<String> tagList) {
+	private Test(String name, ArrayList<String> tagList) {
 		this.name = name;
-		this.testSuite = testSuite;
 		this.tagList = tagList;
 	}
 	
-	public Test createTest(String testName) {
-		if(testSuite.getTestNameList().contains(testName)) {
-			testSuite.getTestNameList().add(testName);
-			return createNewTest(testName);			
+	public Test createTest(TestSuite testSuite, String testName) {
+		if(!testSuite.getTestNameList().contains(testName)) {
+
+			Test test = createNewTest(testName);
+			testSuite.getTestList().add(test);
+			return test;
 		}
 		else {
 			return null;
@@ -25,11 +25,8 @@ public abstract class Test {
 	
 	protected abstract Test createNewTest(String testName);
 	
-	public abstract void test() throws AssertionError;
+	public abstract void test() throws AssertionException;
 	
-	public String getSuiteName() {
-		return testSuite.getSuiteName();
-	}
 	
 	public ArrayList<String> getTagList() {
 		return tagList;

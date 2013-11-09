@@ -20,8 +20,19 @@ public class TestRunner {
 	public void run() {
 		for (RunnableTest runnableTest : testList) {
 			if(!runnableTest.isSkipped()) {
-				runnableTest.getTest().test();
-			}			 	
+				try {
+					Test test = runnableTest.getTest();
+					test.test();
+					}catch(AssertionException exception) {
+						Report.testReport(runnableTest.getTest());
+						continue;
+					}catch(Throwable error) {
+						
+						continue;
+					}
+					//test corrio bien
+					//reporte	
+			}
 		}
 	}
 	
