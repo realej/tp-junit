@@ -15,10 +15,13 @@ public abstract class TestCase extends Test {
 
     private String testName;
     private boolean run = true;
-    
+    private String tags;
+    private boolean matches = false;
+
     public TestCase() {
         testName = this.getClass().getName();
         testName = testName.substring(testName.lastIndexOf(".") + 1);
+        tags = new String();
     }
 
     @Override
@@ -48,14 +51,33 @@ public abstract class TestCase extends Test {
         String name = "TestCase";
         return name;
     }
-    
+
     @Override
-    public void regularExp(String regex){
-        if( !testName.matches(regex) ){
-            run =false;
+    public void regularExp(String regex) {
+        if (!testName.matches(regex)) {
+            run = false;
         }
     }
-    public boolean isRunner(){
+
+    public boolean isRunner() {
         return run;
+    }
+
+    public void addTag(String tag) {
+        tags = tags.concat(tag);
+        tags = tags.concat(",");
+    }
+
+    @Override
+    public void haveTag(String tag) {
+        String regex = ".*" + tag + ".*";
+        if (matches == false) {
+            if (!tags.matches(regex)) {
+                run = false;
+            }else{
+                matches = true;
+                run = true;
+            }
+        }
     }
 }

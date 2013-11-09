@@ -22,9 +22,12 @@ public class AllTest {
         //testMultiplicacionCalculadora tSetUp = new testMultiplicacionCalculadora();
         //TestSetUp setup = new TestSetUp();
         //suite.addSetUp(setup);
-        suite.addTest(tcalc);
+        tcalc.addTag("SLOW");
+        tRestaCalc.addTag("BD");
+        suite.addTest(tcalc); 
         suite.addTest(tRestaCalc);
-        handler.init(suite);
+        //handler.init(suite);
+        handler.initTag(suite,"SLOW,BD");
         //handler.init(suite,".*Resta.*");
     }
 }

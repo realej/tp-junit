@@ -29,4 +29,6 @@ public abstract class Test extends Assert {
     public abstract String getName();
     
     public abstract void regularExp(String regex);
+    
+    public abstract void haveTag(String tag);
 }

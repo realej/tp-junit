@@ -70,4 +70,11 @@ public class TestSuite extends Test {
             test.regularExp(regex);
         }
     }
+
+    @Override
+    public void haveTag(String tag) {
+        for (Test test : tests) {
+            test.haveTag(tag);
+        }
+    }
 }

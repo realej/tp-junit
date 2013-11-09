@@ -15,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class TestRunner {
 
@@ -34,6 +35,16 @@ public class TestRunner {
     public void init(TestSuite suite, String regex) throws IOException {
         this.result = new TestResult();
         suite.regularExp(regex);
+        suite.run(result);
+        this.printResults();
+    }
+
+    public void initTag(TestSuite suite, String tag) throws IOException {
+        this.result = new TestResult();
+        StringTokenizer tk = new StringTokenizer(tag, ",");
+        while (tk.hasMoreTokens()) {
+            suite.haveTag(tk.nextToken());
+        }
         suite.run(result);
         this.printResults();
     }
