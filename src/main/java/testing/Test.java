@@ -25,7 +25,7 @@ public abstract class Test {
 	
 	protected abstract Test createNewTest(String testName);
 	
-	public abstract void test();
+	public abstract void test() throws AssertionError;
 	
 	public String getSuiteName() {
 		return testSuite.getSuiteName();
