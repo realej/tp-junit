@@ -7,6 +7,23 @@ public abstract class Test {
 	protected TestSuite testSuite;
 	protected ArrayList<String> tagList;
 	
+	private Test(String name, TestSuite testSuite, ArrayList<String> tagList) {
+		this.name = name;
+		this.testSuite = testSuite;
+		this.tagList = tagList;
+	}
+	
+	public Test createTest(String testName) {
+		if(testSuite.getTestNameList().contains(testName)) {
+			testSuite.getTestNameList().add(testName);
+			return createNewTest(testName);			
+		}
+		else {
+			return null;
+		}		
+	}
+	
+	protected abstract Test createNewTest(String testName);
 	
 	public abstract void test();
 	
@@ -21,4 +38,9 @@ public abstract class Test {
 	public String getName() {
 		return name;
 	}
+	
+	public void setTag(String tag) {
+		tagList.add(tag);
+	}
+	
 }
