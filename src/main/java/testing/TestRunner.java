@@ -24,7 +24,7 @@ public class TestRunner {
 					Test test = runnableTest.getTest();
 					test.test();
 					}catch(AssertionException exception) {
-						Report.testReport(runnableTest.getTest());
+						//Report.testReport(runnableTest.getTest());
 						continue;
 					}catch(Throwable error) {
 						
