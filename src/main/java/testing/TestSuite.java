@@ -5,19 +5,19 @@ import java.util.ArrayList;
 
 public class TestSuite extends SuperTest{
 	
-	protected String suiteName;
 	ArrayList<SuperTest> testList;
 	
-	public TestSuite (String suiteName) {
-		this.suiteName = suiteName;
+	public TestSuite(String suiteName) {
+		super(suiteName);
+		testList = new ArrayList<SuperTest>();
 	}
-	
-	public String getSuiteName() {
-		return suiteName;
-	}
-	
+
 	public ArrayList<SuperTest> getTestList() {
 		return testList;
+	}
+	
+	public void addTestSuite(TestSuite testSuite) {
+		testList.add(testSuite);
 	}
 	
 	public ArrayList<String> getTestNameList() {
@@ -28,20 +28,12 @@ public class TestSuite extends SuperTest{
 		return testNameList;
 	}
 	
-	public void addTest(Test test) {
-		testList.add(test);
-	}
-	
 	public boolean isSkiped() {
 		return true;
 	}
 
 	public void test() throws AssertionException {
 		//Polimorfismo.
-	}
-	
-	public String getName() {
-		return suiteName;
 	}
 	
 	public ArrayList<String> getTagList() {

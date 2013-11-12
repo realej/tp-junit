@@ -6,11 +6,17 @@ public abstract class SuperTest {
 	
 	private String name;
 	
+	public SuperTest(String suiteName) {
+		name = suiteName;
+	}
+
 	public abstract void test() throws AssertionException;
 	
 	public abstract boolean isSkiped();
 	
-	public abstract String getName();
+	public String getName() {
+		return name;
+	}
 
 	public abstract ArrayList<SuperTest> getTestList();
 	
