@@ -13,29 +13,37 @@ public class TestRunner {
 		testSuiteList.add(tests);
 	}
 	
-	public void run() {
-		for (SuperTest testSuite : testSuiteList) {
+	public void run() {		
+		for (TestSuite testSuite : testSuiteList) {
+			Report.suiteHeaderReport(testSuite);
 			runSuite(testSuite);
+			Report.suiteFooterReport(testSuite);			
 		}
+		Report.clear();
 	}
 	
 	public void runSuite(SuperTest testSuite) {
 		ArrayList<SuperTest> testList = testSuite.getTestList();	
 		for (SuperTest runnableTest : testList) {
+			String result;
 				try {
 					runnableTest.testSuite(this);
 					if(!runnableTest.isSkiped()) {
 						runnableTest.test();
 					}
 					}catch(AssertionException exception) {
-						//Reportar failure
+						result = "failure";
+						Report.testReport(runnableTest, result);
 						continue;
+					}catch(Exception e) { //falta hacer que lance la excepcion TestSuite.test() y hacer una clase especial
+						Report.suiteHeaderReport(runnableTest);
+						runSuite(runnableTest);
 					}catch(Throwable error) {
-						//Reportar error
-						continue;
-						//Reportar ok
+						result = "error";											
 					}
-		}
+				result = "ok";
+				Report.testReport(runnableTest, result);
+		}		
 	}
 	
 	public void runTestOfSuite(String suiteName) {
@@ -159,6 +167,6 @@ public class TestRunner {
 					//Reportar ok
 				}
 		}
-	}
+	}	
 	
 }	
