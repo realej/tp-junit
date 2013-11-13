@@ -17,6 +17,10 @@ public abstract class SuperTest {
 	public String getName() {
 		return name;
 	}
+	
+	public void concatName(String string) {
+		name = name + string;
+	}
 
 	public abstract ArrayList<SuperTest> getTestList();
 	

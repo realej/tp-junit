@@ -17,6 +17,7 @@ public class TestSuite extends SuperTest{
 	}
 	
 	public void addTestSuite(TestSuite testSuite) {
+		testSuite.concatName(testSuite.getName());
 		testList.add(testSuite);
 	}
 	
