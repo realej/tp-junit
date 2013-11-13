@@ -9,24 +9,19 @@ public abstract class SuperTest {
 	public SuperTest(String suiteName) {
 		name = suiteName;
 	}
-
-	public abstract void test() throws AssertionException;
-	
-	public abstract boolean isSkiped();
 	
 	public String getName() {
 		return name;
 	}
+	
+	public abstract boolean isSkiped();
 
 	public abstract ArrayList<SuperTest> getTestList();
 	
 	public abstract ArrayList<String> getTagList();
 	
-	public abstract void testSuite(TestRunner testRunner) throws AssertionException;
+	public abstract void test() throws AssertionException;
 	
-	public abstract void testSuiteWithTagList(TestRunner testRunner, ArrayList<String> tagList) throws AssertionException;
-	
-	public abstract void testSuiteWithRegularExpression(TestRunner testRunner, String regularExpression) throws AssertionException;
-	
-	public abstract void testSuiteMatchingAny(TestRunner testRunner, String testNameRegularExpression, String testSuiteRegularExpression, ArrayList<String> tagList) throws AssertionException;
+	public abstract void testSuite() throws Exception;
+
 }

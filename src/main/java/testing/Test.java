@@ -32,23 +32,7 @@ public abstract class Test extends SuperTest{
 	public abstract void test() throws AssertionException;
 	
 	public void testSuite(TestRunner testRunner) {
-		//Polimorfismo
-	}
 	
-	public void testSuiteWithTagList(TestRunner testRunner, ArrayList<String> tagList) {
-		//Polimorfismo
-	}
-	
-	public void testSuiteWithRegularExpression(TestRunner testRunner, String regularExpression) {
-		//Polimorfismo
-	}
-	
-	public void testSuiteMatchingAny(TestRunner testRunner,String testNameRegularExpression,String testSuiteRegularExpression, ArrayList<String> tagList) {
-		//Polimorfismo
-	}
-	
-	public void testSuiteMatchingAll(TestRunner testRunner,String testNameRegularExpression,String testSuiteRegularExpression, ArrayList<String> tagList) {
-		//Polimorfismo
 	}
 	
 	public ArrayList<String> getTagList() {
