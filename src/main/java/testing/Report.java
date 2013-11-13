@@ -1,5 +1,9 @@
 package testing;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
 
 public class Report {
 	public static String status = "ok";
@@ -53,5 +57,13 @@ public class Report {
 		} else if (result == "failure") {
 			failures++;
 		}
+	}
+	
+	private static void suiteHeaderReportXML(TestSuite testSuite) throws FileNotFoundException, UnsupportedEncodingException {
+		PrintWriter writer = new PrintWriter("report.xsd", "UTF-8");
+		writer.println("<xs:element name=" + testSuite.getName() + ">");
+		writer.println("\t<xs:complexType>");
+		writer.println("<xs:attribute name="+ testSuite.getName() + "type=\"xs:string\" use=\"required\"/>");
+		writer.println("<xs:attribute name="+ testSuite.getName() + "type=\"xs:string\" use=\"required\"/>");
 	}
 }
