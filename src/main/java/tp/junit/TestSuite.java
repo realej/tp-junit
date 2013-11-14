@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class TestSuite extends Test {
 
     private ArrayList<Test> tests = new ArrayList<Test>();
-    private SetUp setUp = null;
+    //private SetUp setUp = null;
     private String suiteName;
 
     public TestSuite(String name) {
