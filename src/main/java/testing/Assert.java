@@ -30,10 +30,6 @@ public class Assert {
 		if (first == second) {
 			throw new AssertionException();
 		}
-	}
-	
-	
-	
-	
+	}	
 	
 }
