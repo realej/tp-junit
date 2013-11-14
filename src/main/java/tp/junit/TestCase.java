@@ -50,6 +50,8 @@ public abstract class TestCase extends Test {
                 result.addError(testName, calcularTiempo(tiempoInicial, tiempoFinal));
             }
         }
+        result.addSkipped(testName, calcularTiempo(tiempoInicial, tiempoFinal));
+        
     }
 
     abstract public void runTest();
