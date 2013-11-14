@@ -16,8 +16,14 @@ public class TestSuite extends SuperTest{
 		return testList;
 	}
 	
-	public void addTestSuite(TestSuite testSuite) {
-		testList.add(testSuite);
+	public int addTest(SuperTest superTest) {
+		if(!getTestNameList().contains(superTest.getName())) {
+			testList.add(superTest);
+			return 0;
+		}
+		else
+			System.out.println("El nombre del test/testSuite no es valido");
+			return 1;
 	}
 	
 	public ArrayList<String> getTestNameList() {
