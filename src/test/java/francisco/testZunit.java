@@ -57,5 +57,7 @@ public class testZunit {
 		assertTrue(object == 1);
 		assertTrue(object2 == 6);	
 	}
+	
+	
 
 }
