@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class TestSuite extends Test {
 
     private ArrayList<Test> tests = new ArrayList<Test>();
-    //private SetUp setUp = null;
     private String suiteName;
 
     public TestSuite(String name) {
@@ -29,7 +28,7 @@ public class TestSuite extends Test {
         for (Test test : tests) {
 
             if (!test.classType().equals("TestSuite")) {
-                test.setAtributos(setUp);
+                test.setAttribute(setUp);
             }
             test.run(result);
             if (setUp != null) {

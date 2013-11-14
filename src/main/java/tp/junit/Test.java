@@ -7,7 +7,7 @@ public abstract class Test {
 
     SetUp setUp = null;
 
-    public void setAtributos(SetUp setup) {
+    public void setAttribute(SetUp setup) {
         setUp = setup;
     }
 
