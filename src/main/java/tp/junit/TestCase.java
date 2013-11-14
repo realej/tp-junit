@@ -25,7 +25,7 @@ public abstract class TestCase extends Test {
     }
 
     private double calcularTiempo(double tiempoInicial, double tiempoFinal) {
-        return (tiempoFinal-tiempoInicial)/1000000; 
+        return (tiempoFinal - tiempoInicial) / 1000000;
     }
 
     @Override
@@ -49,9 +49,10 @@ public abstract class TestCase extends Test {
                 tiempoFinal = System.nanoTime();
                 result.addError(testName, calcularTiempo(tiempoInicial, tiempoFinal));
             }
+        } else {
+                result.addSkipped(testName, 0);
         }
-        result.addSkipped(testName, calcularTiempo(tiempoInicial, tiempoFinal));
-        
+
     }
 
     abstract public void runTest();
