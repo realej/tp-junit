@@ -1,9 +1,5 @@
 package com.fiuba.junit;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 import aplicacion.TestCalculadora;
 import aplicacion.TestError;
 import aplicacion.TestRestaCalculadora;
@@ -19,10 +15,6 @@ import tp.junit.TestCase;
 import tp.junit.TestResult;
 import tp.junit.TestSuite;
 
-/**
- *
- * @author Carlos
- */
 public class TestTp {
 
     public TestTp() {

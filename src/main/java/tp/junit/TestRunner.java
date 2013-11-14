@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Responsabilidad: Se encarga de gestionar los resultados de los test,
  * llevando una lista para los que fallaron y
  * otra para los que pasaron satisfactoriamente.
