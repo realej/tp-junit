@@ -38,30 +38,38 @@ public class XMLCreator {
     public void agregarSuite(String suiteName, TestResult result) {
         Element suite = doc.createElement("testsuite");
         Attr name = doc.createAttribute("name");
+        Attr time = doc.createAttribute("time");
         name.isId();
         name.setValue(suiteName);
         suite.setAttributeNode(name);
         root.appendChild(suite);
+        Double timeSuite = 0.0;
+        
         for (TestState state : result.getPasses()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
+                timeSuite+= state.getTime();
                 agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime(), state.getStateTest());
             }
         }
 
         for (TestState state : result.getFailures()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
+                timeSuite+= state.getTime();
                 agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime(), state.getStateTest());
             }
         }
 
         for (TestState state : result.getError()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
+                timeSuite+= state.getTime();
                 agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime(), state.getStateTest());
             }
         }
+        time.setValue(timeSuite.toString());
+        suite.setAttributeNode(time);
     }
 
-    private void agregarTest(Element suite, String TestCaseName, String ResultTestCase, String time, String State) {
+    private void agregarTest(Element suite, String TestCaseName, String ResultTestCase, Double time, String State) {
         Element nameTestCase = doc.createElement("testcase");
         Attr nameTC = doc.createAttribute("name");
         Attr timeTC = doc.createAttribute("time");
