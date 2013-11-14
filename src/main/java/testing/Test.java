@@ -16,14 +16,7 @@ public abstract class Test extends SuperTest{
 		isSkiped = false;
 	}
 	
-	public Test createTest(String testName) {
-		Test test = createNewTest(testName);
-		return test;	
-	}
-	
-	protected abstract Test createNewTest(String testName);
-	
-	public abstract void test() throws AssertionException;
+	public abstract void test() throws Throwable;
 	
 	public void testSuite() {
 		

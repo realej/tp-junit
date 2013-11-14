@@ -39,7 +39,7 @@ public class TestSuite extends SuperTest{
 		return true;
 	}
 
-	public void test() throws AssertionException {
+	public void test() throws Throwable {
 	}
 	
 	public ArrayList<String> getTagList() {

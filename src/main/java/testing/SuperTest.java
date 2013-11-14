@@ -20,7 +20,7 @@ public abstract class SuperTest {
 	
 	public abstract ArrayList<String> getTagList();
 	
-	public abstract void test() throws AssertionException;
+	public abstract void test() throws Throwable;
 	
 	public abstract void testSuite() throws SuiteException;
 	

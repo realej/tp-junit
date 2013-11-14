@@ -6,8 +6,11 @@ import org.junit.Test;
 
 import testClasses.SuiteOperation;
 import testClasses.SuiteSuma;
+import testClasses.TestError;
 import testClasses.TestOtraSumaOperation;
 import testClasses.TestSumaOperation;
+import testing.Assert;
+import testing.AssertionException;
 import testing.Context;
 import testing.SuiteException;
 import testing.TestSuite;
@@ -21,8 +24,7 @@ public class testZunit {
 		TestSuite suite = new TestSuite("suite");
 		suite.addTest(firstTest);
 		int resultado = suite.addTest(secondTest);
-		assertTrue(resultado == 1);
-		
+		assertTrue(resultado == 1);	
 	}
 	
 	@Test
@@ -58,6 +60,25 @@ public class testZunit {
 		assertTrue(object2 == 6);	
 	}
 	
+	@Test
+	public void errorTest() {
+		SuiteOperation suite = new SuiteOperation("Suite");
+		suite.setUp();
+		Context context = suite.getContext();
+		int object = (Integer) context.getObject("uno");
+		assertTrue(object == 1);
+	}
 	
+	@Test
+    public void testWithError() {
+		TestError test = new TestError("test error");
+		try {
+			test.test();
+		} catch (AssertionException exception) {
+			assertTrue(false);
+		} catch (Throwable e) {
+			assertTrue(true);
+		}
+	}
 
 }
