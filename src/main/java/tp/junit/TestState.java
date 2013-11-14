@@ -45,4 +45,8 @@ public class TestState {
     public String getTime(){
         return Double.toString(time);
     }
+    
+    public String getStateTest() {
+        return stt.toString();
+    }
 }
