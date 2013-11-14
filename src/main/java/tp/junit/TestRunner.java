@@ -23,7 +23,7 @@ public class TestRunner {
     private File resultTxt;
 
     public TestRunner() {
-        resultTxt = new File("resultTest");
+        resultTxt = new File("resultTest.txt");
     }
 
     public void init(TestSuite suite) throws IOException {
