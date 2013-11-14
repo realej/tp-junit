@@ -62,12 +62,12 @@ public class XMLear {
     }
 
     private void agregarTest(Element suite, String TestCaseName, String ResultTestCase) {
-        Element nameTestCase = doc.createElement("nameTestCase");
+        Element nameTestCase = doc.createElement("TestCase");
         Attr nameTC = doc.createAttribute("name");
         nameTC.setValue(TestCaseName);
         nameTestCase.setAttributeNode(nameTC);
 
-        Element resultTestCase = doc.createElement("resultTestCase");
+        Element resultTestCase = doc.createElement("result");
         Attr resultTC = doc.createAttribute("result");
         resultTC.setValue(ResultTestCase);
         resultTestCase.setAttributeNode(resultTC);
