@@ -51,6 +51,7 @@ public class TestSuite extends Test {
 
     public void addSetUp(SetUp setup) {
         setUp = setup;
+        setUp.addAttributes();
     }
 
     @Override
