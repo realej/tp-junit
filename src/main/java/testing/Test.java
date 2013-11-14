@@ -10,7 +10,7 @@ public abstract class Test extends SuperTest{
 	protected SuperTest suite;
 	
 	
-	protected Test(String testName) {
+	public Test(String testName) {
 		super(testName);
 		this.tagList = new ArrayList<String>();
 		isSkiped = false;
