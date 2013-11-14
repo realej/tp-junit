@@ -7,10 +7,6 @@ package aplicacion;
 import tp.junit.*;
 import static tp.junit.Assert.assertTrue;
 
-/**
- *
- * @author Administrador
- */
 public class testMultiplicacionCalculadora extends TestCase {
 
     public void metodoPruebaConSetUp() {

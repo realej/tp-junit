@@ -8,7 +8,7 @@
 package tp.junit;
 
 
-public abstract class Test extends Assert {
+public abstract class Test{
 
     SetUp setUp = null;
 

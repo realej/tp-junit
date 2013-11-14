@@ -6,17 +6,11 @@ package aplicacion;
 
 import tp.junit.SetUp;
 
-/**
- *
- * @author Administrador
- */
 public class TestSetUp extends SetUp {
 
     @Override
     public void agregarAtributos() {
         Calculadora calc = new Calculadora();
-        agregarAtributo(calc);        
+        agregarAtributo(calc);
     }
-    
-    
 }

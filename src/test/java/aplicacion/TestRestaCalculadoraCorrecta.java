@@ -5,11 +5,8 @@
 package aplicacion;
 
 import tp.junit.TestCase;
+import static tp.junit.Assert.*;
 
-/**
- *
- * @author Rosso
- */
 public class TestRestaCalculadoraCorrecta extends TestCase {
 
     public void metodoDePrueba2() {

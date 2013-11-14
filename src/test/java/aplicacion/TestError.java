@@ -6,10 +6,6 @@ package aplicacion;
 
 import tp.junit.TestCase;
 
-/**
- *
- * @author Rosso
- */
 public class TestError extends TestCase{
 
     @Override

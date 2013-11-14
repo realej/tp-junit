@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import tp.junit.AssertException;
 import tp.junit.TestCase;
 import tp.junit.TestResult;
 import tp.junit.TestSuite;
@@ -68,7 +69,7 @@ public class TestTp {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertTrue(true);
-        } catch (Error e) {
+        } catch (AssertException e) {
             fallo = true;
         }
         assertTrue(!fallo);
@@ -79,7 +80,7 @@ public class TestTp {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertTrue(false);
-        } catch (Error e) {
+        } catch (AssertException e) {
             fallo = true;
         }
         assertTrue(fallo);
@@ -90,7 +91,7 @@ public class TestTp {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertFalse(false);
-        } catch (Error e) {
+        } catch (AssertException e) {
             fallo = true;
         }
         assertTrue(!fallo);
@@ -101,7 +102,7 @@ public class TestTp {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertFalse(true);
-        } catch (Error e) {
+        } catch (AssertException e) {
             fallo = true;
         }
         assertTrue(fallo);
@@ -112,7 +113,7 @@ public class TestTp {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertEquals(1, 2);
-        } catch (Error e) {
+        } catch (AssertException e) {
             fallo = true;
         }
         assertTrue(fallo);
@@ -123,7 +124,7 @@ public class TestTp {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertEquals(1, 1);
-        } catch (Error e) {
+        } catch (AssertException e) {
             fallo = true;
         }
         assertTrue(!fallo);
@@ -134,7 +135,7 @@ public class TestTp {
         boolean fallo = false;
         try {
             tp.junit.Assert.fail();
-        } catch (Error e) {
+        } catch (AssertException e) {
             fallo = true;
         }
         assertTrue(fallo);

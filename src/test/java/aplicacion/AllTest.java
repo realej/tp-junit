@@ -26,8 +26,8 @@ public class AllTest {
         tRestaCalc.addTag("BD");
         suite.addTest(tcalc); 
         suite.addTest(tRestaCalc);
-        //handler.init(suite);
-        handler.initTag(suite,"SLOW,BD");
+        handler.init(suite);
+        //handler.initTag(suite,"SLOW,BD");
         //handler.init(suite,".*Resta.*");
     }
 }
