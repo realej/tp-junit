@@ -15,7 +15,7 @@ public class TestState {
 
     public enum State {
 
-        PASSED, FAIL, ERROR
+        PASSED, FAIL, ERROR, SKIPPED
     }
     private String mensage = "";
     private State stt;
