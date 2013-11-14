@@ -2,6 +2,7 @@ package testClasses;
 
 import testing.Assert;
 import testing.AssertionException;
+import testing.SuperTest;
 import testing.Test;
 
 public class TestOtraSumaOperation extends Test{
@@ -20,4 +21,6 @@ public class TestOtraSumaOperation extends Test{
 		int resultado = operation.suma(1,5);
 		Assert.assertFalse(resultado == 10);
 	}
+
+
 }

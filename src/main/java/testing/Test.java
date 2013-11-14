@@ -7,6 +7,7 @@ public abstract class Test extends SuperTest{
 	protected String name;
 	protected ArrayList<String> tagList;
 	protected boolean isSkiped;
+	protected SuperTest suite;
 	
 	
 	protected Test(String testName) {
@@ -40,6 +41,11 @@ public abstract class Test extends SuperTest{
 	public void setTag(String tag) {
 		tagList.add(tag);
 	}
+	
+	public void setSuite(SuperTest suite) {
+		this.suite = suite; 
+	}
+	
 	
 	public String getName() {
 		return name;

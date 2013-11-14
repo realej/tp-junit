@@ -6,6 +6,7 @@ public abstract class TestSuiteWithSetup extends TestSuite implements Setupable{
 	
 	public TestSuiteWithSetup(String suiteName) {
 		super(suiteName);
+		context = new Context();
 	}
 	
 	public Context getContext() {
@@ -14,6 +15,11 @@ public abstract class TestSuiteWithSetup extends TestSuite implements Setupable{
 	
 	public void setObjectContext(String key, Object value) {
 		context.setObject(key, value);
+	}
+	
+	public void testSuite() throws SuiteException {
+		setUp();
+		throw new SuiteException();
 	}
 
 }

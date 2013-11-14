@@ -18,6 +18,7 @@ public class TestSuite extends SuperTest{
 	
 	public int addTest(SuperTest superTest) {
 		if(!getTestNameList().contains(superTest.getName())) {
+			superTest.setSuite(this);
 			testList.add(superTest);
 			return 0;
 		}
@@ -48,6 +49,10 @@ public class TestSuite extends SuperTest{
 
 	public void testSuite() throws SuiteException {
 		throw new SuiteException();
+	}
+	
+	public void setSuite(SuperTest suite) {
+		
 	}
 	
 }

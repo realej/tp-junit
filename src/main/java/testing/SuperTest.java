@@ -23,5 +23,7 @@ public abstract class SuperTest {
 	public abstract void test() throws AssertionException;
 	
 	public abstract void testSuite() throws SuiteException;
+	
+	public abstract void setSuite(SuperTest suite);
 
 }
