@@ -35,8 +35,8 @@ public class TestState {
         return mensage.substring(mensage.lastIndexOf(".") + 1);
     }
 
-    public String getTime() {
-        return Double.toString(time);
+    public Double getTime() {
+        return time;
     }
     
     public String getStateTest() {
