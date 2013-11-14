@@ -3,30 +3,30 @@ package tp.junit;
 import java.util.ArrayList;
 
 public abstract class SetUp {
-    ArrayList<Object> atributos;
+    ArrayList<Object> attributes;
     
     public SetUp(){
-        atributos = new ArrayList<Object>();
+        attributes = new ArrayList<Object>();
     }
     
-    public void agregarAtributo(Object atributo){
-        atributos.add(atributo);       
+    public void addAttribute(Object atributo){
+        attributes.add(atributo);       
     }
     
-    public Object ObtenerAtributo(int posicion){
-        return atributos.get(posicion);
+    public Object getAttribute(int posicion){
+        return attributes.get(posicion);
     }
     
     public ArrayList<Object> getArrayList(){
-        return atributos;
+        return attributes;
     }
     
     public void tearDown(){
-        if (atributos != null){
-        atributos.clear();
-        agregarAtributos();
+        if (attributes != null){
+        attributes.clear();
+        addAttributes();
         }
     }
     
-    public abstract void agregarAtributos();
+    public abstract void addAttributes();
 }
