@@ -19,10 +19,11 @@ public class TestState {
     }
     private String mensage = "";
     private State stt;
-
-    public TestState(String msg, State st) {
+    private double time;
+    public TestState(String msg, State st, double tiempo) {
         this.mensage = msg;
         this.stt = st;
+        this.time = tiempo;
     }
 
     public String getState() {
@@ -30,7 +31,7 @@ public class TestState {
     }
     
     public String getResultTestCase() {
-        return "["+stt.toString()+"]";
+        return "["+stt.toString()+"]"+" : (" + Double.toString(time) + "seg) ;";
     }
     
     public String getSuiteNameTestCase() {
