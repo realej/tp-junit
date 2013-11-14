@@ -39,18 +39,24 @@ public class TestResult {
         }
     }
     
-    public void addFail(String msg) {
-        this.failures.add(new TestState(suiteName + "." + msg, TestState.State.FAIL));
+    public void addFail(String msg, double time) {  
+      //  String tiempo = " : ( " + Double.toString(time) + "s )";
+     //   msg += tiempo;
+        this.failures.add(new TestState(suiteName + "." + msg, TestState.State.FAIL,time));
         this.tCount++;
     }
 
-    public void addPassed(String msg) {
-        this.passes.add(new TestState(suiteName + "." + msg, TestState.State.PASSED));
+    public void addPassed(String msg, double time) {
+      // String tiempo = " : ( " + Double.toString(time) + "s )";
+       // msg += tiempo;
+        this.passes.add(new TestState(suiteName + "." + msg, TestState.State.PASSED,time));
         this.tCount++;
     }
 
-    public void addError(String msg) {
-        this.error.add(new TestState(suiteName + "." + msg, TestState.State.ERROR));
+    public void addError(String msg, double time) {
+     //  String tiempo = " : ( " + Double.toString(time) + "s )";
+      //  msg += tiempo;
+        this.error.add(new TestState(suiteName + "." + msg, TestState.State.ERROR,time));
         this.tCount++;
     }
 
