@@ -28,6 +28,7 @@ public class TestResult {
         this.passes = new ArrayList<TestState>();
         this.failures = new ArrayList<TestState>();
         this.error = new ArrayList<TestState>();
+        this.skipped = new ArrayList<TestState>();
         tCount = 0;
     }
 
@@ -62,7 +63,6 @@ public class TestResult {
 
     public void addSkipped(String msg, double time) {
         this.skipped.add(new TestState(suiteName + "." + msg, TestState.State.SKIPPED, time));
-        this.tCount++;
     }
 
     public ArrayList<TestState> getFailures() {
