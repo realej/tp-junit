@@ -22,27 +22,27 @@ public class TestRunner {
         resultTxt = new File("resultTest.txt");
     }
 
-    public void init(TestSuite suite) throws IOException {
+    public void run(TestSuite suite) throws IOException {
         this.result = new TestResult();
         suite.run(result);
         this.printResults();
     }
 
-    public void initRegex(TestSuite suite, String regex) throws IOException {
+    public void runWithRegex(TestSuite suite, String regex) throws IOException {
         this.result = new TestResult();
         suite.regularExp(regex);
         suite.run(result);
         this.printResults();
     }
 
-    public void initTag(TestSuite suite, String tag) throws IOException {
+    public void runWithTag(TestSuite suite, String tag) throws IOException {
         this.result = new TestResult();
         searchTag(suite, tag);
         suite.run(result);
         this.printResults();
     }
 
-    public void initTagRegex(TestSuite suite, String tag, String regex) throws IOException {
+    public void runWithTagAndRegex(TestSuite suite, String tag, String regex) throws IOException {
         this.result = new TestResult();
         searchTag(suite, tag);
         suite.regularExp(regex);
