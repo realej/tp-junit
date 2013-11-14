@@ -11,7 +11,7 @@ public class testMultiplicacionCalculadora extends TestCase {
 
     public void metodoPruebaConSetUp() {
         Calculadora calc = (Calculadora) getSetUp().ObtenerAtributo(0);
-        assertTrue(calc.resta(1, 1) == 0);
+        assertTrue(calc.multiplica(2, 2) == 4);
     }
 
     @Override
