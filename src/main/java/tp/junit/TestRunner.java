@@ -132,6 +132,7 @@ public class TestRunner {
     }
 
     private void printResults() throws IOException {
+        XMLear xml = new XMLear();
         FileWriter fileTxt = new FileWriter(resultTxt);
         BufferedWriter bw = new BufferedWriter(fileTxt);
         PrintWriter pw = new PrintWriter(bw);
@@ -139,11 +140,13 @@ public class TestRunner {
 
         for (String suite : listSuites) {
             printResultSuite(suite, pw);
+            xml.agregarSuite(suite, result);
         }
 
         printSummary(result, pw);
 
         pw.close();
         bw.close();
+        xml.guardar("Resultado");
     }
 }
