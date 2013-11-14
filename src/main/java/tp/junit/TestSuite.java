@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Responsabilidad: Se encarga de ejecutar las plantillas y
  * de agregar más test a un grupo de test.
  * Patrones Utilizados: Composite - Compuesto

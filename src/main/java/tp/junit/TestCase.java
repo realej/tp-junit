@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Responsabilidad: Se encarga de ejecutar el test y
  * modificar si este fue de resultado positivo o negativo
  * Patrones utilizados: Template Method - runTest()

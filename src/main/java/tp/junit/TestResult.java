@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Responsabilidad: Se encarga de gestionar los resultados de los test,
  * llevando una lista para los que fallaron y
  * otra para los que pasaron satisfactoriamente.
@@ -11,10 +7,6 @@ package tp.junit;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Julian
- */
 public class TestResult {
 
     private ArrayList<TestState> failures;
@@ -41,28 +33,23 @@ public class TestResult {
     }
 
     public void addFail(String msg, double time) {
-        //  String tiempo = " : ( " + Double.toString(time) + "s )";
-        //   msg += tiempo;
         this.failures.add(new TestState(suiteName + "." + msg, TestState.State.FAIL, time));
         this.tCount++;
     }
 
     public void addPassed(String msg, double time) {
-        // String tiempo = " : ( " + Double.toString(time) + "s )";
-        // msg += tiempo;
         this.passes.add(new TestState(suiteName + "." + msg, TestState.State.PASSED, time));
         this.tCount++;
     }
 
     public void addError(String msg, double time) {
-        //  String tiempo = " : ( " + Double.toString(time) + "s )";
-        //  msg += tiempo;
         this.error.add(new TestState(suiteName + "." + msg, TestState.State.ERROR, time));
         this.tCount++;
     }
 
     public void addSkipped(String msg, double time) {
         this.skipped.add(new TestState(suiteName + "." + msg, TestState.State.SKIPPED, time));
+        this.tCount++;
     }
 
     public ArrayList<TestState> getFailures() {
