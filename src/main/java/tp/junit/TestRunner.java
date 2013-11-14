@@ -32,7 +32,7 @@ public class TestRunner {
         this.printResults();
     }
 
-    public void init(TestSuite suite, String regex) throws IOException {
+    public void initRegex(TestSuite suite, String regex) throws IOException {
         this.result = new TestResult();
         suite.regularExp(regex);
         suite.run(result);
@@ -41,12 +41,24 @@ public class TestRunner {
 
     public void initTag(TestSuite suite, String tag) throws IOException {
         this.result = new TestResult();
+        searchTag(suite, tag);
+        suite.run(result);
+        this.printResults();
+    }
+
+    public void initTagRegex(TestSuite suite, String tag, String regex) throws IOException {
+        this.result = new TestResult();
+        searchTag(suite, tag);
+        suite.regularExp(regex);
+        suite.run(result);
+        this.printResults();
+    }
+
+    private void searchTag(TestSuite suite, String tag) throws IOException {
         StringTokenizer tk = new StringTokenizer(tag, ",");
         while (tk.hasMoreTokens()) {
             suite.haveTag(tk.nextToken());
         }
-        suite.run(result);
-        this.printResults();
     }
 
     private void printSummary(TestResult result, PrintWriter pw) throws IOException {

@@ -262,4 +262,56 @@ public class TestTp {
         suite.run(result);
         assertEquals(0, result.getTestCount());
     }
+    
+    @Test
+    public void testTagAndRegexMatch2() {
+
+        TestSuite suite = new TestSuite("suite");
+        TestResult result = new TestResult();
+        TestCalculadora tcalc = new TestCalculadora();
+        TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
+        tcalc.addTag("SLOW");
+        tRestaCalc.addTag("BD");
+        suite.addTest(tcalc);
+        suite.addTest(tRestaCalc);
+        suite.haveTag("SLOW");
+        suite.regularExp(".*Resta.*");
+        suite.run(result);
+        assertEquals(2, result.getTestCount());
+    }
+    
+    @Test
+    public void testTagAndRegexMatchTag() {
+
+        TestSuite suite = new TestSuite("suite");
+        TestResult result = new TestResult();
+        TestCalculadora tcalc = new TestCalculadora();
+        TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
+        tcalc.addTag("SLOW");
+        tRestaCalc.addTag("BD");
+        suite.addTest(tcalc);
+        suite.addTest(tRestaCalc);
+        suite.haveTag("SLOW");
+        suite.regularExp(".*NotMatch.*");
+        suite.run(result);
+        assertEquals(1, result.getTestCount());
+    }
+    
+    @Test
+    public void testTagAndRegexMatchRegex() {
+
+        TestSuite suite = new TestSuite("suite");
+        TestResult result = new TestResult();
+        TestCalculadora tcalc = new TestCalculadora();
+        TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
+        tcalc.addTag("SLOW");
+        tRestaCalc.addTag("BD");
+        suite.addTest(tcalc);
+        suite.addTest(tRestaCalc);
+        suite.haveTag("NotMatch");
+        suite.regularExp(".*Resta.*");
+        suite.run(result);
+        assertEquals(1, result.getTestCount());
+    }
+    
 }

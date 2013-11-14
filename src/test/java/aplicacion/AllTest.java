@@ -16,7 +16,7 @@ public class AllTest {
     public static void main(String[] args) throws IOException {
         TestRunner handler = new TestRunner();
         TestSuite suite = new TestSuite("suite");
-        TestSuite suite1 = new TestSuite("suite1");
+        //TestSuite suite1 = new TestSuite("suite1");
         TestCalculadora tcalc = new TestCalculadora();
         TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
         //testMultiplicacionCalculadora tSetUp = new testMultiplicacionCalculadora();
@@ -26,8 +26,9 @@ public class AllTest {
         tRestaCalc.addTag("BD");
         suite.addTest(tcalc); 
         suite.addTest(tRestaCalc);
-        handler.init(suite);
+        //handler.init(suite);
         //handler.initTag(suite,"SLOW,BD");
-        //handler.init(suite,".*Resta.*");
+        //handler.initRegex(suite,".*Resta.*");
+        handler.initTagRegex(suite,"SLOW",".*Resta.*");
     }
 }

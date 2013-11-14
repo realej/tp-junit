@@ -54,8 +54,13 @@ public abstract class TestCase extends Test {
 
     @Override
     public void regularExp(String regex) {
-        if (!testName.matches(regex)) {
-            run = false;
+        if (matches == false) {
+            if (!testName.matches(regex)) {
+                run = false;
+            } else {
+                matches = true;
+                run = true;
+            }
         }
     }
 
@@ -74,7 +79,7 @@ public abstract class TestCase extends Test {
         if (matches == false) {
             if (!tags.matches(regex)) {
                 run = false;
-            }else{
+            } else {
                 matches = true;
                 run = true;
             }
