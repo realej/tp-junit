@@ -1,15 +1,18 @@
 package testing;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 
 public class Report {
-	public static String status = "ok";
+	public static String status = "success";
 	public static int run = 0;
 	public static int errors = 0;
 	public static int failures = 0;
+	public static PrintWriter writer;
 	//SACAR COMENTARIOS
 	
 	//el header del report
@@ -17,6 +20,21 @@ public class Report {
 		System.out.println(testSuite.getName());
 		System.out.println("--------------------");
 		System.out.println();
+	}
+	
+	public static void suiteFileHeaderReport(SuperTest testSuite) throws IOException {		
+		writer.println(testSuite.getName());
+		writer.println("--------------------");
+		writer.println();
+	}
+	
+	public static void suiteFileFooterReport(SuperTest testSuite) {
+		writer.println("[" + status + "] " + "Summary");
+		writer.println("--------------------");
+		writer.println("--------------------");
+		writer.println("Run: " + run);
+		writer.println("Errors: " + errors);
+		writer.println("Failures: " + failures);
 	}
 	
 	//el footer del report con los resultados
@@ -38,10 +56,17 @@ public class Report {
 		updateStatusCounter(result);
 	}
 	
+	public static void testFileReport(SuperTest test, String result) {
+		writer.println("[" + result + "] ");
+		writer.println(test.getName());
+	}
+	
+	
+	
 	//usar al final de la totalidad de los tests corridos para poder mas tarde hacer una corrida de otros tests
 	public static void clear() {
 		run = errors = failures = 0;
-		status = "ok";
+		status = "success";
 	}
 	
 	
@@ -65,5 +90,9 @@ public class Report {
 		writer.println("\t<xs:complexType>");
 		writer.println("<xs:attribute name="+ testSuite.getName() + "type=\"xs:string\" use=\"required\"/>");
 		writer.println("<xs:attribute name="+ testSuite.getName() + "type=\"xs:string\" use=\"required\"/>");
+	}
+	
+	public static void createReport(String fileName) throws FileNotFoundException {
+		writer = new PrintWriter("Report.txt");
 	}
 }

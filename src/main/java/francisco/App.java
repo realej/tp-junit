@@ -1,5 +1,4 @@
 package francisco;
-import java.lang.String;
 
 public class App 
 {

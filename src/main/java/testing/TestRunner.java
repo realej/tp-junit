@@ -45,7 +45,7 @@ public class TestRunner {
 					result = "failure";
 					Report.testReport(runnableTest, result);
 					continue;
-				}catch(SuiteException e) { //falta hacer que lance la excepcion TestSuite.test() y hacer una clase especial
+				}catch(SuiteException e) { 
 					Report.suiteHeaderReport(runnableTest);  
 					runSuite(runnableTest);
 				}catch(Throwable error) {
@@ -80,7 +80,7 @@ public class TestRunner {
 					result = "failure";
 					Report.testReport(runnableTest, result);
 					continue;
-				}catch(SuiteException e) { //falta hacer que lance la excepcion TestSuite.test() y hacer una clase especial
+				}catch(SuiteException e) { 
 					Report.suiteHeaderReport(runnableTest); 
 					runSuiteWithTagList(runnableTest,tagList);
 				}catch(Throwable error) {
@@ -113,7 +113,7 @@ public class TestRunner {
 					result = "failure";
 					Report.testReport(runnableTest, result);
 					continue;
-				}catch(SuiteException e) { //falta hacer que lance la excepcion TestSuite.test() y hacer una clase especial
+				}catch(SuiteException e) { 
 					Report.suiteHeaderReport(runnableTest);   
 					runSuiteWithRegularExpression(runnableTest,regularExpression);
 				}catch(Throwable error) {
@@ -197,7 +197,7 @@ public class TestRunner {
 					result = "failure";
 					Report.testReport(runnableTest, result);
 					continue;
-				}catch(SuiteException e) { //falta hacer que lance la excepcion TestSuite.test() y hacer una clase especial
+				}catch(SuiteException e) { 
 					Report.suiteHeaderReport(runnableTest);   
 					runSuiteMatchingAll(runnableTest,testNameRegularExpression,testSuiteRegularExpression,tagList);
 				}catch(Throwable error) {
