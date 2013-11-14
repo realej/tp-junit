@@ -24,6 +24,10 @@ public abstract class TestCase extends Test {
         tags = new String();
     }
 
+    private double calcularTiempo(double tiempoInicial, double tiempoFinal) {
+        return (tiempoFinal-tiempoInicial)/1000000; 
+    }
+
     @Override
     public String getName() {
         return testName;
@@ -31,15 +35,19 @@ public abstract class TestCase extends Test {
 
     @Override
     public void run(TestResult result) {
+        long tiempoInicial = 0, tiempoFinal = 0;
         if (run == true) {
             try {
+                tiempoInicial = System.nanoTime();
                 runTest();
-                result.addPassed(testName);
+                tiempoFinal = System.nanoTime();
+                result.addPassed(testName, calcularTiempo(tiempoInicial, tiempoFinal));
             } catch (AssertException e) {
-                result.addFail(testName);
-
+                tiempoFinal = System.nanoTime();
+                result.addFail(testName, calcularTiempo(tiempoInicial, tiempoFinal));
             } catch (Throwable e) {
-                result.addError(testName);
+                tiempoFinal = System.nanoTime();
+                result.addError(testName, calcularTiempo(tiempoInicial, tiempoFinal));
             }
         }
     }
