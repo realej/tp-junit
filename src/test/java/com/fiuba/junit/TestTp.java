@@ -37,7 +37,7 @@ public class TestTp {
     }
 
     @Test
-    public void testSuiteRunFalla() {
+    public void testSuiteRunFail() {
         TestSuite suite = new TestSuite("suite");
         TestResult result = new TestResult();
         TestRestaCalculadora tRestaCalc = new TestRestaCalculadora();
@@ -47,7 +47,7 @@ public class TestTp {
     }
 
     @Test
-    public void testSuiteRunCorrecta() {
+    public void testSuiteRunCorrect() {
         TestSuite suite = new TestSuite("suite");
         TestResult result = new TestResult();
         TestRestaCalculadoraCorrecta tRestaCalc = new TestRestaCalculadoraCorrecta();
@@ -57,7 +57,7 @@ public class TestTp {
     }
 
     @Test
-    public void testAssertTrueCorrecto() {
+    public void testAssertTrueCorrect() {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertTrue(true);
@@ -68,7 +68,7 @@ public class TestTp {
     }
 
     @Test
-    public void testAssertTrueFalla() {
+    public void testAssertTrueFail() {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertTrue(false);
@@ -79,7 +79,7 @@ public class TestTp {
     }
 
     @Test
-    public void testAssertFalseCorrecta() {
+    public void testAssertFalseCorrect() {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertFalse(false);
@@ -90,7 +90,7 @@ public class TestTp {
     }
 
     @Test
-    public void testAssertFalseFalla() {
+    public void testAssertFalseFail() {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertFalse(true);
@@ -101,7 +101,7 @@ public class TestTp {
     }
 
     @Test
-    public void testAssertEqualsFalla() {
+    public void testAssertEqualsFail() {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertEquals(1, 2);
@@ -112,7 +112,7 @@ public class TestTp {
     }
 
     @Test
-    public void testAssertEqualsCorrecto() {
+    public void testAssertEqualsCorrect() {
         boolean fallo = false;
         try {
             tp.junit.Assert.assertEquals(1, 1);
