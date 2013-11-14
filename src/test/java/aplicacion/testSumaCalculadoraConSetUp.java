@@ -1,16 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package aplicacion;
 
 import static tp.junit.Assert.assertTrue;
 import tp.junit.TestCase;
 
-/**
- *
- * @author Administrador
- */
 public class testSumaCalculadoraConSetUp extends TestCase {
 
     public void metodoPruebaConSetUp() {

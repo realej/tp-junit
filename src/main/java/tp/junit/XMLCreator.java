@@ -14,10 +14,6 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-/**
- *
- * @author Administrador
- */
 public class XMLCreator {
 
     Document doc;
@@ -44,24 +40,24 @@ public class XMLCreator {
         suite.setAttributeNode(name);
         root.appendChild(suite);
         Double timeSuite = 0.0;
-        
+
         for (TestState state : result.getPasses()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
-                timeSuite+= state.getTime();
+                timeSuite += state.getTime();
                 agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime(), state.getStateTest());
             }
         }
 
         for (TestState state : result.getFailures()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
-                timeSuite+= state.getTime();
+                timeSuite += state.getTime();
                 agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime(), state.getStateTest());
             }
         }
 
         for (TestState state : result.getError()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
-                timeSuite+= state.getTime();
+                timeSuite += state.getTime();
                 agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime(), state.getStateTest());
             }
         }
@@ -85,7 +81,7 @@ public class XMLCreator {
 
         Attr nameElementTC = doc.createAttribute("name");
         nameElementTC.setValue(TestCaseName);
-        
+
         if (!"PASSED".equals(State)) {
             Element elementTestCase = doc.createElement(State.toLowerCase());
             elementTestCase.setAttributeNode(nameElementTC);

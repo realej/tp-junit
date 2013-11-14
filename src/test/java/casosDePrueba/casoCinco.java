@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package casosDePrueba;
 
 import aplicacion.TestSetUp;
@@ -30,7 +26,7 @@ public class casoCinco {
 
         testSumaCalculadoraConSetUp testConSetUp2 = new testSumaCalculadoraConSetUp();
         otraSuite2.addTest(testConSetUp2);
-       
+
         suite.addTest(otraSuite1);
         suite.addTest(otraSuite2);
 

@@ -10,10 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import tp.junit.AssertException;
-import tp.junit.TestCase;
-import tp.junit.TestResult;
-import tp.junit.TestSuite;
+import tp.junit.*;
 
 public class TestTp {
 
