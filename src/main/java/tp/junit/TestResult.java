@@ -20,6 +20,7 @@ public class TestResult {
     private ArrayList<TestState> failures;
     private ArrayList<TestState> passes;
     private ArrayList<TestState> error;
+    private ArrayList<TestState> skipped;
     private String suiteName = "";
     private int tCount;
 
@@ -30,33 +31,37 @@ public class TestResult {
         tCount = 0;
     }
 
-    public void addSuiteName(String name){
-        if ("".equals(this.suiteName)) { 
+    public void addSuiteName(String name) {
+        if ("".equals(this.suiteName)) {
             this.suiteName = name;
-        }
-        else {
-            this.suiteName += ("."+name);
+        } else {
+            this.suiteName += ("." + name);
         }
     }
-    
-    public void addFail(String msg, double time) {  
-      //  String tiempo = " : ( " + Double.toString(time) + "s )";
-     //   msg += tiempo;
-        this.failures.add(new TestState(suiteName + "." + msg, TestState.State.FAIL,time));
+
+    public void addFail(String msg, double time) {
+        //  String tiempo = " : ( " + Double.toString(time) + "s )";
+        //   msg += tiempo;
+        this.failures.add(new TestState(suiteName + "." + msg, TestState.State.FAIL, time));
         this.tCount++;
     }
 
     public void addPassed(String msg, double time) {
-      // String tiempo = " : ( " + Double.toString(time) + "s )";
-       // msg += tiempo;
-        this.passes.add(new TestState(suiteName + "." + msg, TestState.State.PASSED,time));
+        // String tiempo = " : ( " + Double.toString(time) + "s )";
+        // msg += tiempo;
+        this.passes.add(new TestState(suiteName + "." + msg, TestState.State.PASSED, time));
         this.tCount++;
     }
 
     public void addError(String msg, double time) {
-     //  String tiempo = " : ( " + Double.toString(time) + "s )";
-      //  msg += tiempo;
-        this.error.add(new TestState(suiteName + "." + msg, TestState.State.ERROR,time));
+        //  String tiempo = " : ( " + Double.toString(time) + "s )";
+        //  msg += tiempo;
+        this.error.add(new TestState(suiteName + "." + msg, TestState.State.ERROR, time));
+        this.tCount++;
+    }
+
+    public void addSkipped(String msg, double time) {
+        this.skipped.add(new TestState(suiteName + "." + msg, TestState.State.SKIPPED, time));
         this.tCount++;
     }
 
@@ -70,6 +75,10 @@ public class TestResult {
 
     public ArrayList<TestState> getError() {
         return this.error;
+    }
+
+    public ArrayList<TestState> getSkipped() {
+        return this.skipped;
     }
 
     public int getTestCount() {
