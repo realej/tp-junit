@@ -74,6 +74,8 @@ public class TestRunner {
         summary.append(System.getProperty("line.separator"));
         summary.append("Failures: " + result.getFailures().size());
         summary.append(System.getProperty("line.separator"));
+        summary.append("Skipped: " + result.getSkipped().size());
+        summary.append(System.getProperty("line.separator"));
         System.out.println(summary.toString());
         pw.append(summary.toString());
     }
