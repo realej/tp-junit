@@ -44,38 +44,46 @@ public class XMLear {
         root.appendChild(suite);
         for (TestState state : result.getPasses()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
-                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime());
+                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime(), state.getStateTest());
             }
         }
 
         for (TestState state : result.getFailures()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
-                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime());
+                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime(), state.getStateTest());
             }
         }
 
         for (TestState state : result.getError()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
-                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getState());
+                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime(), state.getStateTest());
             }
         }
     }
 
-    private void agregarTest(Element suite, String TestCaseName, String ResultTestCase, String time) {
+    private void agregarTest(Element suite, String TestCaseName, String ResultTestCase, String time, String State) {
         Element nameTestCase = doc.createElement("testcase");
         Attr nameTC = doc.createAttribute("name");
         Attr timeTC = doc.createAttribute("time");
-        
+        Attr statusTC = doc.createAttribute("status");
+
         timeTC.setValue(time.toString());
         nameTC.setValue(TestCaseName);
+        statusTC.setValue(State);
+
         nameTestCase.setAttributeNode(nameTC);
         nameTestCase.setAttributeNode(timeTC);
+        nameTestCase.setAttributeNode(statusTC);
 
-        Element resultTestCase = doc.createElement("result");
-        Attr resultTC = doc.createAttribute("result");
-        resultTC.setValue(ResultTestCase);
-        resultTestCase.setAttributeNode(resultTC);
-        nameTestCase.appendChild(resultTestCase);
+        Attr nameElementTC = doc.createAttribute("name");
+        nameElementTC.setValue(TestCaseName);
+        
+        if (!"PASSED".equals(State)) {
+            Element elementTestCase = doc.createElement(State.toLowerCase());
+            elementTestCase.setAttributeNode(nameElementTC);
+            nameTestCase.appendChild(elementTestCase);
+        }
+
         suite.appendChild(nameTestCase);
 
     }
