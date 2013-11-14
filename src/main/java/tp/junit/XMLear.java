@@ -28,7 +28,7 @@ public class XMLear {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             doc = docBuilder.newDocument();
-            root = doc.createElement("testSuites");
+            root = doc.createElement("testsuites");
             doc.appendChild(root);
         } catch (ParserConfigurationException e) {
         }
@@ -36,36 +36,40 @@ public class XMLear {
     }
 
     public void agregarSuite(String suiteName, TestResult result) {
-        Element suite = doc.createElement("suite");
-        Attr name = doc.createAttribute("suiteName");
+        Element suite = doc.createElement("testsuite");
+        Attr name = doc.createAttribute("name");
         name.isId();
         name.setValue(suiteName);
         suite.setAttributeNode(name);
         root.appendChild(suite);
         for (TestState state : result.getPasses()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
-                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase());
+                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime());
             }
         }
 
         for (TestState state : result.getFailures()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
-                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase());
+                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getTime());
             }
         }
 
         for (TestState state : result.getError()) {
             if (state.getSuiteNameTestCase().equals(suiteName)) {
-                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase());
+                agregarTest(suite, state.getTestCaseName(), state.getResultTestCase(), state.getState());
             }
         }
     }
 
-    private void agregarTest(Element suite, String TestCaseName, String ResultTestCase) {
-        Element nameTestCase = doc.createElement("TestCase");
+    private void agregarTest(Element suite, String TestCaseName, String ResultTestCase, String time) {
+        Element nameTestCase = doc.createElement("testcase");
         Attr nameTC = doc.createAttribute("name");
+        Attr timeTC = doc.createAttribute("time");
+        
+        timeTC.setValue(time.toString());
         nameTC.setValue(TestCaseName);
         nameTestCase.setAttributeNode(nameTC);
+        nameTestCase.setAttributeNode(timeTC);
 
         Element resultTestCase = doc.createElement("result");
         Attr resultTC = doc.createAttribute("result");
