@@ -205,7 +205,9 @@ public class TestTp {
         suite.addTest(tRestaCalc);
         suite.regularExp(".*Resta.*");
         suite.run(result);
-        assertEquals(1, result.getTestCount());
+        assertEquals(1, result.getFailures().size());
+        assertEquals(1, result.getSkipped().size());
+        assertEquals(2, result.getTestCount());
     }
 
     @Test
@@ -218,7 +220,8 @@ public class TestTp {
         suite.addTest(tRestaCalc);
         suite.regularExp(".*Ninguno.*");
         suite.run(result);
-        assertEquals(0, result.getTestCount());
+        assertEquals(2, result.getSkipped().size());
+        assertEquals(2, result.getTestCount());
     }
 
     @Test
@@ -244,9 +247,11 @@ public class TestTp {
         suite.addTest(tRestaCalc);
         suite.haveTag("SLOW");
         suite.run(result);
-        assertEquals(1, result.getTestCount());
+        assertEquals(1, result.getPasses().size());
+        assertEquals(1, result.getSkipped().size());
+        assertEquals(2, result.getTestCount());
     }
-    
+
     @Test
     public void testTagNotMatch() {
 
@@ -260,9 +265,10 @@ public class TestTp {
         suite.addTest(tRestaCalc);
         suite.haveTag("NOTEXIST");
         suite.run(result);
-        assertEquals(0, result.getTestCount());
+        assertEquals(2, result.getSkipped().size());
+        assertEquals(2, result.getTestCount());
     }
-    
+
     @Test
     public void testTagAndRegexMatch2() {
 
@@ -277,9 +283,11 @@ public class TestTp {
         suite.haveTag("SLOW");
         suite.regularExp(".*Resta.*");
         suite.run(result);
+        assertEquals(1, result.getPasses().size());
+        assertEquals(1, result.getFailures().size());
         assertEquals(2, result.getTestCount());
     }
-    
+
     @Test
     public void testTagAndRegexMatchTag() {
 
@@ -294,9 +302,11 @@ public class TestTp {
         suite.haveTag("SLOW");
         suite.regularExp(".*NotMatch.*");
         suite.run(result);
-        assertEquals(1, result.getTestCount());
+        assertEquals(1, result.getSkipped().size());
+        assertEquals(1, result.getPasses().size());
+        assertEquals(2, result.getTestCount());
     }
-    
+
     @Test
     public void testTagAndRegexMatchRegex() {
 
@@ -311,7 +321,9 @@ public class TestTp {
         suite.haveTag("NotMatch");
         suite.regularExp(".*Resta.*");
         suite.run(result);
-        assertEquals(1, result.getTestCount());
+        assertEquals(1, result.getSkipped().size());
+        assertEquals(1, result.getFailures().size());
+        assertEquals(2, result.getTestCount());
+
     }
-    
 }

@@ -63,6 +63,7 @@ public class TestResult {
 
     public void addSkipped(String msg, double time) {
         this.skipped.add(new TestState(suiteName + "." + msg, TestState.State.SKIPPED, time));
+        this.tCount++;
     }
 
     public ArrayList<TestState> getFailures() {
