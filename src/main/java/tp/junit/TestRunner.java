@@ -132,7 +132,7 @@ public class TestRunner {
     }
 
     private void printResults() throws IOException {
-        XMLear xml = new XMLear();
+        XMLCreator xml = new XMLCreator();
         FileWriter fileTxt = new FileWriter(resultTxt);
         BufferedWriter bw = new BufferedWriter(fileTxt);
         PrintWriter pw = new PrintWriter(bw);

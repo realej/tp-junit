@@ -18,12 +18,12 @@ import org.w3c.dom.Element;
  *
  * @author Administrador
  */
-public class XMLear {
+public class XMLCreator {
 
     Document doc;
     Element root;
 
-    public XMLear() {
+    public XMLCreator() {
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
