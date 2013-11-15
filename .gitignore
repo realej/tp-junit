@@ -25,3 +25,7 @@ local.properties
 !.gitignore
 !.htaccess
 *~
+
+# Maven
+
+target/*
