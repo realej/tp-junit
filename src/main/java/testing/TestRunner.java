@@ -8,6 +8,10 @@ public class TestRunner {
 	
 	ArrayList<TestSuite> testSuiteList;
 
+        
+        public TestRunner(){
+            this.testSuiteList = new ArrayList<TestSuite>();
+        }
 	
 	public void addTestSuite(TestSuite tests) {
 		testSuiteList.add(tests);
