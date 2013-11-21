@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public abstract class Test extends SuperTest{
-	protected String name;
+	
 	protected ArrayList<String> tagList;
 	protected boolean isSkiped;
 	protected SuperTest suite;

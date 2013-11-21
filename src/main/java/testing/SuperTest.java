@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class SuperTest {
 	
-	private String name;
+	protected String name;
 	
 	public SuperTest(String suiteName) {
 		name = suiteName;
