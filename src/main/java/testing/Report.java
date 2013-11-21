@@ -60,8 +60,8 @@ public class Report {
     public static void testFileReport(SuperTest test, String result) {
         writer.println("[" + result + "] ");
         writer.println(test.getName());
-        if (result.equals("failure") || result.equals("error")) {
-            store.addFailedTest(test.getName());
+        if (result.equals("ok")) {
+            store.addNotRunTest(test.getName());
         }
     }
 

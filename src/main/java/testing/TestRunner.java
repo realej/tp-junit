@@ -9,10 +9,11 @@ import java.util.regex.Pattern;
 public class TestRunner {
 
     ArrayList<TestSuite> testSuiteList;
-
+    Store store;
     public TestRunner() throws FileNotFoundException {
         this.testSuiteList = new ArrayList<TestSuite>();
         Report.createReport("Report.txt");
+       store = new Store();
     }
 
     public void addTestSuite(TestSuite tests) {
@@ -33,12 +34,14 @@ public class TestRunner {
     }
 
     public void runTestOfSuiteStore(String suiteName) throws IOException {
+        
         for (SuperTest testSuite : testSuiteList) {
             if (suiteName.equals(testSuite.getName())) {
                 Report.suiteHeaderReport(testSuite);
                 //agregue
                 Report.suiteFileHeaderReport(testSuite);
                 testSuite.isStoreTest();
+                store.deleteStore();
                 runSuite(testSuite);
                 //agregue
                 Report.suiteFileFooterReport(testSuite);
@@ -48,14 +51,19 @@ public class TestRunner {
         Report.clear();
     }
 
-    public void runTestOfSuite(String suiteName) {
+    public void runTestOfSuite(String suiteName) throws IOException {
         for (SuperTest testSuite : testSuiteList) {
-            if (suiteName == testSuite.getName()) {
+            if (suiteName.equals(testSuite.getName())) {
                 Report.suiteHeaderReport(testSuite);
+                //agregue
+                Report.suiteFileHeaderReport(testSuite);
                 runSuite(testSuite);
+                //agregue
+                Report.suiteFileFooterReport(testSuite);
                 Report.suiteFooterReport(testSuite);
             }
         }
+        Report.clear();
     }
 
     public void runSuite(SuperTest testSuite) {

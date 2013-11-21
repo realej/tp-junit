@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package francisco;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import testClasses.*;
@@ -17,16 +18,15 @@ public class UsuarioFramework {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         TestRunner runner = new TestRunner();
         TestSuite suiteSuma = new SuiteSuma("suiteSuma");
-        Test tSuma = new TestSumaOperation("tSuma");
-        Test time = new TestTime("tiempo",1);
+        Test tSuma = new TestSumaOperation("TestSuma");
+        Test time = new TestTime("tiempo", 1);
         suiteSuma.addTest(tSuma);
         suiteSuma.addTest(time);
         runner.addTestSuite(suiteSuma);
-        runner.run();
-        Store store = new Store();
-        if(store.isStoreTest("tiempo")){
-            System.out.println("bien");
-        }
+        runner.runTestOfSuite("suiteSuma");
+        Test tSuma2 = new TestOtraSumaOperation("TestSuma2");
+        suiteSuma.addTest(tSuma2);
         runner.runTestOfSuiteStore("suiteSuma");
+
     }
 }

@@ -2,6 +2,7 @@ package testing;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class Store {
     public Store() {
     }
 
-    public void addFailedTest(String testName) {
+    public void addNotRunTest(String testName) {
 
         try {
             storeFile = new FileWriter("Store.txt", true);
@@ -47,5 +48,16 @@ public class Store {
             Logger.getLogger(Store.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
+    }
+
+    public void deleteStore(){
+        try {
+            File fichero = new File("Store.txt");
+            if (!fichero.delete()) {
+                throw new Exception("El fichero Store.txt no puede ser borrado!");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
