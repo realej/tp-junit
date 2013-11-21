@@ -6,13 +6,13 @@ package testing;
 
 public abstract class NewTest extends TestDecorador {
 
-    long limitTime = 0;
+    Double limitTime = 0.0;
 
     private double calculateTime(long initTime, long finalTime) {
         return (finalTime - initTime) / 1000000000;
     }
 
-    public NewTest(String testName, long limitTime) {
+    public NewTest(String testName, Double limitTime) {
         super(testName);
         this.limitTime = limitTime;
     }

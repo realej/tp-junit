@@ -13,7 +13,7 @@ import testing.Assert;
  */
 public class TestTime extends NewTest {
 
-    public TestTime(String testName, long time) {
+    public TestTime(String testName, Double time) {
         super(testName, time);
     }
 

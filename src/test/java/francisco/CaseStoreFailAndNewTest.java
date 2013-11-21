@@ -17,7 +17,7 @@ public class CaseStoreFailAndNewTest {
         TestSuite suiteSuma = new SuiteSuma("suiteSuma");
         Test tSuma = new TestSumaOperation("TestSuma");
         Test tSuma2 = new TestOtraSumaOperation("TestSuma2");
-        Test time = new TestTime("tiempo", 1);
+        Test time = new TestTime("tiempo", 1.0);
         suiteSuma.addTest(tSuma);
         suiteSuma.addTest(time);
         runner.addTestSuite(suiteSuma);
