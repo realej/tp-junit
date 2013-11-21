@@ -1,0 +1,13 @@
+suite
+--------------------
+
+[failure] 
+tiempo Max 1 seg
+[ok] 
+timepo Max 10 seg
+[failure] Summary
+--------------------
+--------------------
+Run: 2
+Errors: 0
+Failures: 1
