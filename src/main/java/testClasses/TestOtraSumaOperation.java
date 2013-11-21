@@ -2,7 +2,6 @@ package testClasses;
 
 import testing.Assert;
 import testing.AssertionException;
-import testing.SuperTest;
 import testing.Test;
 
 public class TestOtraSumaOperation extends Test{

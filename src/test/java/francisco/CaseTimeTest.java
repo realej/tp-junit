@@ -1,23 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package francisco;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import testClasses.SuiteSuma;
-import testClasses.TestOtraSumaOperation;
-import testClasses.TestSumaOperation;
 import testClasses.TestTime;
 import testing.Test;
 import testing.TestRunner;
 import testing.TestSuite;
 
-/**
- *
- * @author Administrador
- */
 public class CaseTimeTest {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {

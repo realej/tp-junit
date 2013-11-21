@@ -1,12 +1,8 @@
 package testClasses;
 
 import testing.Assert;
-import java.util.ArrayList;
 import testing.AssertionException;
-import testing.SuiteException;
-import testing.SuperTest;
 import testing.Test;
-import testing.TestSuite;
 
 public class TestSumaOperation extends Test{
 	

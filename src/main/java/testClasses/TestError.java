@@ -3,9 +3,7 @@ package testClasses;
 import java.util.ArrayList;
 
 import testing.Assert;
-import testing.AssertionException;
 import testing.Test;
-import testing.TestSuite;
 
 public class TestError extends Test {
 
