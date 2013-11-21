@@ -22,12 +22,5 @@
       <scope>test</scope>
     </dependency>
     
-    <dependency>
-      <groupId>Hamcrest</groupId>
-      <artifactId>Hamcrest</artifactId>
-      <version>1.1</version>
-      <scope>test</scope>
-    </dependency>
-    
   </dependencies>
 </project>
