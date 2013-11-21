@@ -40,6 +40,7 @@ public abstract class Test extends SuperTest{
 	}
 	
 	
+        @Override
 	public String getName() {
 		return name;
 	}
@@ -55,5 +56,12 @@ public abstract class Test extends SuperTest{
 	public void unSkip() {
 		isSkiped = false;
 	}
+        public void isStoreTest(){
+            Store store = new Store();
+            if(!store.isStoreTest(name)){
+                System.out.println("Lo marco" + name);
+                skip();
+            }
+        }
 	
 }

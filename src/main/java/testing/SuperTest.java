@@ -25,5 +25,8 @@ public abstract class SuperTest {
 	public abstract void testSuite() throws SuiteException;
 	
 	public abstract void setSuite(SuperTest suite);
+        
+        //agregue
+        public abstract void isStoreTest();
 
 }

@@ -27,5 +27,6 @@ public class UsuarioFramework {
         if(store.isStoreTest("tiempo")){
             System.out.println("bien");
         }
+        runner.runTestOfSuiteStore("suiteSuma");
     }
 }

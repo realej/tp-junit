@@ -55,4 +55,9 @@ public class TestSuite extends SuperTest{
 		
 	}
 	
+        public void isStoreTest(){
+            for(SuperTest test: testList){
+                test.isStoreTest();
+            }
+        }
 }
