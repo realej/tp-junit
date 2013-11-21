@@ -23,5 +23,9 @@ public class UsuarioFramework {
         suiteSuma.addTest(time);
         runner.addTestSuite(suiteSuma);
         runner.run();
+        Store store = new Store();
+        if(store.isStoreTest("tiempo")){
+            System.out.println("bien");
+        }
     }
 }
