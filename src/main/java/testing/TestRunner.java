@@ -1,5 +1,7 @@
 package testing;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.regex.Pattern;
@@ -9,19 +11,24 @@ public class TestRunner {
 	ArrayList<TestSuite> testSuiteList;
 
         
-        public TestRunner(){
+        public TestRunner() throws FileNotFoundException{
             this.testSuiteList = new ArrayList<TestSuite>();
+            Report.createReport("Report.txt");
         }
 	
 	public void addTestSuite(TestSuite tests) {
 		testSuiteList.add(tests);
 	}
 	
-	public void run() {		
+	public void run() throws IOException {		
 		for (TestSuite testSuite : testSuiteList) {
 			Report.suiteHeaderReport(testSuite);
-			runSuite(testSuite);
-			Report.suiteFooterReport(testSuite);			
+			//agregue
+                        Report.suiteFileHeaderReport(testSuite);
+                        runSuite(testSuite);
+                        //agregue
+                        Report.suiteFileFooterReport(testSuite);
+                        Report.suiteFooterReport(testSuite);			
 		}
 		Report.clear();
 	}
@@ -48,15 +55,21 @@ public class TestRunner {
 				}catch(AssertionException exception) {
 					result = "failure";
 					Report.testReport(runnableTest, result);
+                                        //agregue
+                                        Report.testFileReport(runnableTest, result);
 					continue;
 				}catch(SuiteException e) { 
 					Report.suiteHeaderReport(runnableTest);  
 					runSuite(runnableTest);
 				}catch(Throwable error) {
-					result = "error";											
+					result = "error";
+                                        //agregue
+                                        Report.testFileReport(runnableTest, result);
 				}
 				result = "ok";
 				Report.testReport(runnableTest, result);
+                                //agregue
+                                Report.testFileReport(runnableTest, result);
 		}		
 	}
 	

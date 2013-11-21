@@ -67,6 +67,7 @@ public class Report {
 	public static void clear() {
 		run = errors = failures = 0;
 		status = "success";
+                writer.close();
 	}
 	
 	
