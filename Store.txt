@@ -1,3 +1,0 @@
-TestSuma
-TestSuma2
-timepo Max 10 seg
