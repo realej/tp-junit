@@ -1,6 +1,8 @@
 package francisco;
 
+import org.junit.After;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 import org.junit.Test;
 
@@ -12,10 +14,21 @@ import testClasses.TestOtraSumaOperation;
 import testClasses.TestSumaOperation;
 import testing.AssertionException;
 import testing.Context;
+import testing.Store;
 import testing.TestSuite;
 
 public class testZunit {
-
+    private Store store;
+    @Before
+    public void setUp(){
+        store = new Store();
+    }
+    
+    @After
+    public void tearDown(){
+        store.deleteStore();
+    }
+    
     @Test
     public void nameTestOfSuiteUniqueness() {
         TestSumaOperation firstTest = new TestSumaOperation("test suma");
@@ -83,5 +96,27 @@ public class testZunit {
         }
         assertTrue(true);
     }
+    
+    @Test
+    public void testDeleteStore() {     
+        store.addNotRunTest("Test1");
+        assertTrue(store.deleteStore());
+    }
+    
+    @Test
+    public void testDeleteStoreFail() {     
+        assertFalse(store.deleteStore());
+    }
+    
+    @Test
+    public void testIsStoreTest() { 
+        store.addNotRunTest("Test1");
+        assertTrue(store.isStoreTest("Test1"));
+    }
 
+    @Test
+    public void testIsStoreTestFail() { 
+        store.addNotRunTest("Test1");
+        assertFalse(store.isStoreTest("Test2"));
+    }
 }

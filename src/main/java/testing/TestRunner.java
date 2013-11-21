@@ -23,10 +23,10 @@ public class TestRunner {
     public void run() throws IOException {
         for (TestSuite testSuite : testSuiteList) {
             Report.suiteHeaderReport(testSuite);
-            //agregue
+            
             Report.suiteFileHeaderReport(testSuite);
             runSuite(testSuite);
-            //agregue
+            
             Report.suiteFileFooterReport(testSuite);
             Report.suiteFooterReport(testSuite);
         }
@@ -38,12 +38,12 @@ public class TestRunner {
         for (SuperTest testSuite : testSuiteList) {
             if (suiteName.equals(testSuite.getName())) {
                 Report.suiteHeaderReport(testSuite);
-                //agregue
+                
                 Report.suiteFileHeaderReport(testSuite);
                 testSuite.isStoreTest();
                 store.deleteStore();
                 runSuite(testSuite);
-                //agregue
+                
                 Report.suiteFileFooterReport(testSuite);
                 Report.suiteFooterReport(testSuite);
             }
@@ -55,10 +55,10 @@ public class TestRunner {
         for (SuperTest testSuite : testSuiteList) {
             if (suiteName.equals(testSuite.getName())) {
                 Report.suiteHeaderReport(testSuite);
-                //agregue
+                
                 Report.suiteFileHeaderReport(testSuite);
                 runSuite(testSuite);
-                //agregue
+                
                 Report.suiteFileFooterReport(testSuite);
                 Report.suiteFooterReport(testSuite);
             }
@@ -76,15 +76,15 @@ public class TestRunner {
                     runnableTest.test();
                     result = "ok";
                     Report.testReport(runnableTest, result);
-                    //agregue
+                    
                     Report.testFileReport(runnableTest, result);
                 } else {
-                    //Not run
+                    store.addNotRunTest(runnableTest.getName());
                 }
             } catch (AssertionException exception) {
                 result = "failure";
                 Report.testReport(runnableTest, result);
-                //agregue
+               
                 Report.testFileReport(runnableTest, result);
                 continue;
             } catch (SuiteException e) {
@@ -92,13 +92,10 @@ public class TestRunner {
                 runSuite(runnableTest);
             } catch (Throwable error) {
                 result = "error";
-                //agregue
+                
                 Report.testFileReport(runnableTest, result);
             }
-            //result = "ok";
-            //Report.testReport(runnableTest, result);
-            //agregue
-            //Report.testFileReport(runnableTest, result);
+            
         }
     }
 

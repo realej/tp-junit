@@ -50,14 +50,18 @@ public class Store {
         return result;
     }
 
-    public void deleteStore(){
+    public boolean deleteStore(){
+        boolean delete = false;
         try {
-            File fichero = new File("Store.txt");
-            if (!fichero.delete()) {
+            File file= new File("Store.txt");
+            delete = file.delete();
+            if (!delete) {
                 throw new Exception("El fichero Store.txt no puede ser borrado!");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            delete = false;
         }
+        return delete;
     }
 }
