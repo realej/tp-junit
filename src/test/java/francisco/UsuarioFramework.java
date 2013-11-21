@@ -16,7 +16,9 @@ public class UsuarioFramework {
         TestRunner runner = new TestRunner();
         TestSuite suiteSuma = new SuiteSuma("suiteSuma");
         Test tSuma = new TestSumaOperation("tSuma");
+        Test time = new TestTime("tiempo",1);
         suiteSuma.addTest(tSuma);
+        suiteSuma.addTest(time);
         runner.addTestSuite(suiteSuma);
         runner.run();
     }
