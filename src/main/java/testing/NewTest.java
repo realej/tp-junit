@@ -8,8 +8,8 @@ public abstract class NewTest extends TestDecorador {
 
     long limitTime = 0;
 
-    private double calculateTime(double initTime, long finalTime) {
-        return (finalTime - initTime) / 1000000;
+    private double calculateTime(long initTime, long finalTime) {
+        return (finalTime - initTime) / 1000000000;
     }
 
     public NewTest(String testName, long limitTime) {
